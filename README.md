@@ -24,7 +24,7 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 Bug reports and pull requests are welcome!
 
-### Remaining features
+### Remaining Loggi's features
 - [Authetication](https://docs.api.loggi.com/reference/autorizacao#consultar-api-key)
 - [List shops](https://docs.api.loggi.com/reference/lojas#listagem-de-lojas)
 - [List packages](https://docs.api.loggi.com/reference/pacotes#listagem-de-pacotes)
@@ -36,6 +36,9 @@ Bug reports and pull requests are welcome!
 - [Remake an order](https://docs.api.loggi.com/reference/pedidos#refazer-um-pedido)
 - [Tracking an order](https://docs.api.loggi.com/reference/pedidos#buscar-um-pedido)
 - [Edit an order](https://docs.api.loggi.com/reference/pedidos#edi%C3%A7%C3%A3o-de-pedido)
+
+### Other remaining features
+- [Config Travis as a CI]
 
 ### Some references
 - [Loggi's getting started](https://docs.api.loggi.com/docs/getting-started)
