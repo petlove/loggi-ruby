@@ -5,7 +5,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'loggi', github: 'petlove/loggi'
+gem 'loggi', github: 'petlove/loggi-ruby'
 ```
 
 And then execute:
