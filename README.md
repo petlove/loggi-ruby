@@ -1,5 +1,7 @@
 # [Loggi](https://github.com/petlove/loggi-ruby)
 
+[![Build Status](https://travis-ci.org/petlove/loggi-ruby.svg?branch=master)](https://travis-ci.org/petlove/loggi-ruby)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -8,13 +10,20 @@ Add this line to your application's Gemfile:
 gem 'loggi', github: 'petlove/loggi-ruby'
 ```
 
-And then execute:
+And then execute:U
 
     $ bundle
 
 ## Usage
 
-TODO: Write usage instructions here
+#### Authentication
+You should use the model `Loggi::Crendetial` to generate your `api_key`.
+```ruby
+credential = Loggi::Credential.new(email: email, password: password)
+credential.authenticate!
+credential.api_key
+# => 14651f0f-8888-4100-9ab7-cf4b2dffb31e
+```
 
 ## Development
 
@@ -25,7 +34,7 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 Bug reports and pull requests are welcome!
 
 ### Remaining Loggi's features
-- [Authetication](https://docs.api.loggi.com/reference/autorizacao#consultar-api-key)
+- [~Authentication~](https://docs.api.loggi.com/reference/autorizacao#consultar-api-key)
 - [List shops](https://docs.api.loggi.com/reference/lojas#listagem-de-lojas)
 - [List packages](https://docs.api.loggi.com/reference/pacotes#listagem-de-pacotes)
 - [Package's history](https://docs.api.loggi.com/reference/pacotes#historico-de-pacote)
@@ -38,7 +47,7 @@ Bug reports and pull requests are welcome!
 - [Edit an order](https://docs.api.loggi.com/reference/pedidos#edi%C3%A7%C3%A3o-de-pedido)
 
 ### Other remaining features
-- [Config Travis as a CI]
+- ~Config Travis as a CI~
 
 ### Some references
 - [Loggi's getting started](https://docs.api.loggi.com/docs/getting-started)

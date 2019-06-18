@@ -12,4 +12,7 @@ require 'loggi'
 # Pry.start
 
 require 'irb'
+require 'dotenv'
+Dotenv.load('.env.development')
+
 IRB.start(__FILE__)

@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://staging.loggi.com/graphql
+    body:
+      encoding: UTF-8
+      string: '{"query":"mutation { login(input: { email: \"loggistaging@loggi.com\",
+        password: \"123456\" }) { user { apiKey } } }"}'
+    headers:
+      Content-Type:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - staging.loggi.com
+      User-Agent:
+      - http.rb/4.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 19 Jun 2019 19:02:59 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Access-Control-Allow-Headers:
+      - Authorization,Content-Type,Accept,Origin,User-Agent,DNT,Cache-Control,X-Mx-ReqToken,Keep-Alive,X-Requested-With,If-Modified-Since
+      Content-Language:
+      - pt-br
+      Vary:
+      - Cookie, Accept-Language
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Lu:
+      - 60855;304899
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PATCH
+      X-Wsgi-Duration:
+      - '0.19519'
+      Set-Cookie:
+      - csrftoken=HdA1Gc9TwyVhvMpo0W1XTmLKqAa0bZUK; expires=Wed, 17-Jun-2020 19:02:59
+        GMT; Max-Age=31449600; Path=/
+      - django_language=pt_BR; Path=/
+      - sessionid=".eJxVjrEOwjAMRP8lM6ocQmnC2JkJidlyGzspoBaRZkL8O0ZigOWWd-90T4NU14y18AMHGq88R3MwAxVuPqA5LilNZ6X9F25-jUwla33sCByL5daBlXYLnsHG2AUv3hMIiRNm2ascLzSnBW-alRKrfF-xP_3PTvrBwc6H8HoDkZY1ug:1hdfrH:SnZoeuJQQVNuk9tkglYaU3Nxals";
+        expires=Wed, 03-Jul-2019 19:02:59 GMT; httponly; Max-Age=1209600; Path=/
+      Node:
+      - app-server-app-v1-1
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      X-Proxy:
+      - staging-haproxy-01
+      X-Backend:
+      - www_be
+      X-Box:
+      - app_2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"login":{"user":{"apiKey":"14651f0f-8888-4100-9ab7-cf4b2dffb31e"}}}}'
+    http_version:
+  recorded_at: Wed, 19 Jun 2019 19:02:59 GMT
+recorded_with: VCR 4.0.0
