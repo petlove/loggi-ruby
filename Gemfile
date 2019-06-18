@@ -2,6 +2,8 @@
 
 source 'https://rubygems.org'
 
+gem 'graphql-client'
+
 group :test do
   gem 'rspec'
 end

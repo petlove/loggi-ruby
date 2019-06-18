@@ -26,8 +26,8 @@ Bug reports and pull requests are welcome!
 
 ### Remaining features
 - [Authetication](https://docs.api.loggi.com/reference/autorizacao#consultar-api-key)
-- [List Shops](https://docs.api.loggi.com/reference/lojas#listagem-de-lojas)
-- [List Packages](https://docs.api.loggi.com/reference/pacotes#listagem-de-pacotes)
+- [List shops](https://docs.api.loggi.com/reference/lojas#listagem-de-lojas)
+- [List packages](https://docs.api.loggi.com/reference/pacotes#listagem-de-pacotes)
 - [Package's history](https://docs.api.loggi.com/reference/pacotes#historico-de-pacote)
 - [Package's status](https://docs.api.loggi.com/reference/pacotes#status-dos-pacotes)
 - [Create an order](https://docs.api.loggi.com/reference/pedidos#criacao-de-pedido)
@@ -36,6 +36,10 @@ Bug reports and pull requests are welcome!
 - [Remake an order](https://docs.api.loggi.com/reference/pedidos#refazer-um-pedido)
 - [Tracking an order](https://docs.api.loggi.com/reference/pedidos#buscar-um-pedido)
 - [Edit an order](https://docs.api.loggi.com/reference/pedidos#edi%C3%A7%C3%A3o-de-pedido)
+
+### Some references
+- [Loggi's getting started](https://docs.api.loggi.com/docs/getting-started)
+- [Loggi's API Reference](https://docs.api.loggi.com/reference/autorizacao)
 
 ## License
 
