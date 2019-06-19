@@ -15,11 +15,10 @@ Gem::Specification.new do |spec|
   spec.description   = 'Simple integration with Loggi API'
   spec.homepage      = 'https://github.com/petlove/loggi-ruby'
 
-  spec.files         = Dir['{app,config,lib}/**/*', 'CHANGELOG.md', 'MIT-LICENSE', 'README.md']
+  spec.files         = Dir['{lib}/**/*', 'CHANGELOG.md', 'MIT-LICENSE', 'README.md']
   spec.require_paths = ['lib']
   spec.required_ruby_version = '>= 2.3.0'
 
   spec.add_development_dependency 'bundler', '~> 2.0.2'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_dependency 'graphql-client', '~> 0.14'
 end
