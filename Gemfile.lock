@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     loggi (0.1.0)
+      graphql-client (~> 0.14)
 
 GEM
   remote: https://rubygems.org/
