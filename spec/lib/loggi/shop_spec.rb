@@ -59,7 +59,7 @@ RSpec.describe Loggi::Shop, type: :model do
     subject { loggi_credential.list }
 
     xit 'should return a shop list', :vcr do
-      expect(subject.all? { |shop| shop.is_a?(described_class)}).to be_truthy
+      expect(subject.all? { |shop| shop.is_a?(described_class) }).to be_truthy
     end
   end
 end

@@ -25,6 +25,12 @@ credential.api_key
 # => 14651f0f-8888-4100-9ab7-cf4b2dffb31e
 ```
 
+#### Shops
+You should use the model `Loggi::Shop` to list your shops.
+```ruby
+Loggi::Shop.list(credencial)
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -35,7 +41,7 @@ Bug reports and pull requests are welcome!
 
 ### Remaining Loggi's features
 - [~Authentication~](https://docs.api.loggi.com/reference/autorizacao#consultar-api-key)
-- [List shops](https://docs.api.loggi.com/reference/lojas#listagem-de-lojas)
+- [~List shops~](https://docs.api.loggi.com/reference/lojas#listagem-de-lojas)
 - [List packages](https://docs.api.loggi.com/reference/pacotes#listagem-de-pacotes)
 - [Package's history](https://docs.api.loggi.com/reference/pacotes#historico-de-pacote)
 - [Package's status](https://docs.api.loggi.com/reference/pacotes#status-dos-pacotes)
