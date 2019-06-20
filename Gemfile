@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'activesupport', '~> 5.0'
 gem 'http'
+gem 'awesome_print'
 
 group :test do
   gem 'factory_bot'
