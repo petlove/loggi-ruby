@@ -7,7 +7,7 @@ FactoryBot.define do
     pk { 129 }
     name { 'Coelho Burguer' }
     pickup_instructions { 'Retirar pacotes no balcão' }
-    address { build :shop_address }
-    charge_options { build_list :shop_charge_option, 1 }
+    address { build :address }
+    charge_options { build_list :charge_option, 1 }
   end
 end

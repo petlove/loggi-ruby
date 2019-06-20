@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :charge_option, class: Loggi::ChargeOption do
+  factory :pickup, class: Loggi::Pickup do
     initialize_with { new({}) }
 
-    label { 'Cartão de Crédito' }
+    address { build :address }
   end
 end
