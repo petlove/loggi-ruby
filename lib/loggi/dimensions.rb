@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Loggi
-  class Dimension
+  class Dimensions
     attr_accessor :width, :height, :length
 
     def initialize(options)

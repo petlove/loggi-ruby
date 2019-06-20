@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Loggi::Dimension, type: :model do
+RSpec.describe Loggi::Dimensions, type: :model do
   describe '#initialize' do
     subject { described_class.new(options) }
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :dimension, class: Loggi::Charge do
+  factory :dimensions, class: Loggi::Dimensions do
     initialize_with { new({}) }
 
     width { 10 }
