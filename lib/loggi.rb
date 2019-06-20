@@ -2,6 +2,7 @@
 
 require 'loggi/version'
 require 'loggi/configuration'
+require 'loggi/base'
 require 'loggi/credential'
 require 'loggi/shop'
 require 'loggi/address'

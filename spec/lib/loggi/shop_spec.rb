@@ -17,7 +17,6 @@ RSpec.describe Loggi::Shop, type: :model do
     end
 
     context 'with options' do
-      # rubocop:disable Metrics/LineLength
       let(:options) do
         {
           name: 'Coelho Burguer',
@@ -43,7 +42,6 @@ RSpec.describe Loggi::Shop, type: :model do
           ]
         }
       end
-      # rubocop:enable Metrics/LineLength
 
       it 'should full all fields' do
         expect(subject.pk).to eq(129)

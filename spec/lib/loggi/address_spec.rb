@@ -19,7 +19,6 @@ RSpec.describe Loggi::Address, type: :model do
     end
 
     context 'with options' do
-      # rubocop:disable Metrics/LineLength
       let(:options) do
         {
           pos: '{ "type": "Point", "coordinates": [ -46.6516703, -23.5516433 ] }',
@@ -41,7 +40,6 @@ RSpec.describe Loggi::Address, type: :model do
         expect(subject.formatted_address).to eq('R. Augusta, 588 - Consola\\u00e7\\u00e3o, S\\u00e3o Paulo - SP, Brazil')
         expect(subject.complement).to eq('8o andar')
       end
-      # rubocop:enable Metrics/LineLength
     end
   end
 end
