@@ -8,7 +8,11 @@ RSpec.describe Loggi::Package, type: :model do
       let(:options) { {} }
 
       it 'shouldnt full any field' do
+        expect(subject.pickup_index).to be_nil
+        expect(subject.recipient).to be_nil
         expect(subject.address).to be_nil
+        expect(subject.charge).to be_nil
+        expect(subject.dimensions).to be_nil
       end
     end
 
