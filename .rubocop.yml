@@ -20,6 +20,9 @@ Metrics/BlockLength:
 Metrics/AbcSize:
   Max: 20
 
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
 AllCops:
   TargetRubyVersion: 2.3.0
   DisplayCopNames: true
