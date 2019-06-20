@@ -8,6 +8,7 @@ require 'factory_bot'
 require 'pry'
 require 'webmock'
 require 'vcr'
+require 'support/helpers/credential_helper'
 
 Dotenv.load('.env.test')
 
@@ -30,4 +31,6 @@ RSpec.configure do |config|
   config.before(:suite) do
     FactoryBot.find_definitions
   end
+
+  config.include Helpers::CredentialHelper
 end

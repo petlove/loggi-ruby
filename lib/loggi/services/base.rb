@@ -3,9 +3,11 @@
 module Loggi
   module Services
     class Base
+      class UnlessCredentialHeaders < StandardError; end
+
       attr_accessor :credential
 
-      def initialize(credential)
+      def initialize(credential = Loggi::Configuration.credential)
         @credential = credential
       end
 
@@ -38,6 +40,8 @@ module Loggi
       end
 
       def authorization_key
+        raise UnlessCredentialHeaders unless @credential.api_key || @credential.email
+
         "#{@credential.api_key} #{@credential.email}:#{@credential.api_key}"
       end
 

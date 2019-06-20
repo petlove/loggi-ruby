@@ -16,6 +16,23 @@ And then execute:U
 
 ## Usage
 
+#### Configure the credential
+You should configure your credential to have access to authenticated resources with this code:
+```ruby
+Loggi::Configuration.configure(Loggi::Credential.new(
+                                email: ENV['LOGGI_API_EMAIL'],
+                                api_key: ENV['LOGGI_API_KEY']
+                              ))
+```
+
+If you want to request to authenticate all times that you configure your application, you may use this code:
+```ruby
+Loggi::Configuration.configure(Loggi::Credential.new(
+                                email: ENV['LOGGI_API_EMAIL'],
+                                password: ENV['LOGGI_API_PASSWORD']
+                              ))
+```
+
 #### Authentication
 You should use the model `Loggi::Crendetial` to generate your `api_key`.
 ```ruby
@@ -28,7 +45,7 @@ credential.api_key
 #### Shops
 You should use the model `Loggi::Shop` to list your shops.
 ```ruby
-Loggi::Shop.list(credencial)
+Loggi::Shop.list
 ```
 
 ## Development

@@ -35,7 +35,7 @@ RSpec.describe Loggi::Services::Shops, type: :model do
   end
 
   describe '#login_required?' do
-    subject { described_class.new(nil).login_required? }
+    subject { described_class.new.login_required? }
 
     it 'should be login required' do
       is_expected.to be_truthy
@@ -43,7 +43,8 @@ RSpec.describe Loggi::Services::Shops, type: :model do
   end
 
   describe '#request!' do
-    subject { described_class.new(credential).request! }
+    before { authorize! }
+    subject { described_class.new.request! }
     let(:credential) { build :credential }
 
     xit 'should return shops', :vcr do
