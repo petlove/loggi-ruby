@@ -9,7 +9,7 @@ require 'pry'
 require 'webmock'
 require 'vcr'
 require 'support/helpers/credential_helper'
-require "awesome_print"
+require 'awesome_print'
 
 Dotenv.load('.env.test')
 

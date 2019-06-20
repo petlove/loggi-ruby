@@ -4,7 +4,7 @@
 require 'bundler/setup'
 require 'loggi'
 require 'irb'
-require "awesome_print"
+require 'awesome_print'
 require 'dotenv'
 Dotenv.load('.env.development')
 

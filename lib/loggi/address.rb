@@ -2,11 +2,12 @@
 
 module Loggi
   class Address
-    attr_accessor :pos, :address_st, :address_data, :lat, :lng, :formatted_address
+    attr_accessor :pos, :address_st, :address_data, :lat, :lng, :formatted_address, :complement
 
     def initialize(options)
       @pos = JSON.parse(options[:pos]).deep_symbolize_keys if options[:pos]
       @address_st = options[:address_st] || options[:addressSt]
+      @complement = options[:complement]
       build_address_data(options)
       build_coordinates(options)
       build_formated_address(options)
