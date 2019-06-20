@@ -49,8 +49,8 @@ RSpec.describe Loggi::Shop, type: :model do
         expect(subject.pk).to eq(129)
         expect(subject.name).to eq('Coelho Burguer')
         expect(subject.pickup_instructions).to eq('Retirar pacotes no balcão')
-        expect(subject.address).to be_a(Loggi::Shop::Address)
-        expect(subject.charge_options.all? { |co| co.is_a?(Loggi::Shop::ChargeOption) }).to be_truthy
+        expect(subject.address).to be_a(Loggi::Address)
+        expect(subject.charge_options.all? { |co| co.is_a?(Loggi::ChargeOption) }).to be_truthy
       end
     end
   end
