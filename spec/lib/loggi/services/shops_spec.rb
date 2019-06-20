@@ -34,6 +34,14 @@ RSpec.describe Loggi::Services::Shops, type: :model do
     end
   end
 
+  describe '#login_required?' do
+    subject { described_class.new(nil).login_required? }
+
+    it 'should be login required' do
+      is_expected.to be_truthy
+    end
+  end
+
   describe '#request!' do
     subject { described_class.new(credential).request! }
     let(:credential) { build :credential }

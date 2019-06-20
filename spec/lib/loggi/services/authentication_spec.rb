@@ -25,6 +25,14 @@ RSpec.describe Loggi::Services::Authentication, type: :model do
     end
   end
 
+  describe '#login_required?' do
+    subject { described_class.new(nil).login_required? }
+
+    it 'shouldnt be login required' do
+      is_expected.to be_falsey
+    end
+  end
+
   describe '#request!' do
     subject { described_class.new(credential).request! }
 
