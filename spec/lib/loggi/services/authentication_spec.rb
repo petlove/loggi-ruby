@@ -1,26 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe Loggi::Services::Authentication, type: :model do
-  describe '#initialize' do
-    subject { described_class.new(credential) }
-
-    context 'without credential' do
-      let(:credential) { nil }
-
-      it 'shouldnt have a credential' do
-        expect(subject.credential).to be_nil
-      end
-    end
-
-    context 'with credential' do
-      let(:credential) { build :credential }
-
-      it 'should have a credential' do
-        expect(subject.credential).not_to be_nil
-      end
-    end
-  end
-
   describe '#query' do
     subject { described_class.new(credential).query }
 
@@ -42,6 +22,14 @@ RSpec.describe Loggi::Services::Authentication, type: :model do
 
     it 'should be equal as a template' do
       expect(subject.squish).to eq(template.squish)
+    end
+  end
+
+  describe '#login_required?' do
+    subject { described_class.new(nil).login_required? }
+
+    it 'shouldnt be login required' do
+      is_expected.to be_falsey
     end
   end
 

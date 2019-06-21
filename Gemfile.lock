@@ -2,6 +2,8 @@ PATH
   remote: .
   specs:
     loggi (0.1.0)
+      activesupport (~> 5.0)
+      http (~> 4.1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -14,6 +16,7 @@ GEM
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     ast (2.4.0)
+    awesome_print (1.8.0)
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
     crack (0.4.3)
@@ -95,6 +98,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport (~> 5.0)
+  awesome_print
   bundler (~> 2.0.2)
   dotenv
   factory_bot
