@@ -12,5 +12,6 @@ FactoryBot.define do
     lat { -23.5516433 }
     lng { -46.6516703 }
     formatted_address { 'R. Augusta, 588 - Consola\\u00e7\\u00e3o, S\\u00e3o Paulo - SP, Brazil' }
+    complement { '8o andar' }
   end
 end
