@@ -29,25 +29,12 @@ RSpec.describe Loggi::Credential, type: :model do
   end
 
   describe '#authenticate!' do
-    subject { loggi_credential.authenticate! }
+    subject { build(:credential).authenticate! }
 
-    context 'without correct params' do
-      let(:loggi_credential) { build :credential, password: '1234' }
+    after { subject }
 
-      it 'should raise bad request HTTP error', :vcr do
-        expect(loggi_credential.api_key).to be_nil
-        expect { subject }.to raise_error(Loggi::Credential::UserNotFoundError)
-      end
-    end
-
-    context 'with correct params' do
-      let(:loggi_credential) { build :credential }
-
-      it 'should return an user api key', :vcr do
-        expect(loggi_credential.api_key).to be_nil
-        subject
-        expect(loggi_credential.api_key).not_to be_nil
-      end
+    it 'should call authentication service' do
+      expect(Loggi::Services::Authentication).to receive(:authenticate!).once
     end
   end
 end
