@@ -24,7 +24,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 19 Jun 2019 19:31:47 GMT
+      - Wed, 19 Jun 2019 19:30:20 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -46,15 +46,15 @@ http_interactions:
       Access-Control-Allow-Methods:
       - GET, POST, OPTIONS, PATCH
       X-Wsgi-Duration:
-      - '0.187448'
+      - '0.185046'
       Set-Cookie:
-      - csrftoken=rqry4y5hEcK9GKLCVJvKgQzCKhglsDOU; expires=Wed, 17-Jun-2020 19:31:47
+      - csrftoken=5slsnoMFUC85FnLCKfvLlj9EunO8vw77; expires=Wed, 17-Jun-2020 19:30:20
         GMT; Max-Age=31449600; Path=/
       - django_language=pt_BR; Path=/
-      - sessionid=".eJxVjrEOwjAMRP8lM6ocQmnC2JkJidlyGzspoBaRZkL8O0ZigOWWd-90T4NU14y18AMHGq88R3MwAxVuPqA5LilNZ6X9F25-jUwla33sCByL5daBlXYLnsHG2AUv3hMIiRNm2ascLzSnBW-alRKrfF-xP_3PTvrBwc6H8HoDkZY1ug:1hdgJ9:dr3Ft3lIM7quneoIu8x6g5CF2nU";
-        expires=Wed, 03-Jul-2019 19:31:47 GMT; httponly; Max-Age=1209600; Path=/
+      - sessionid=".eJxVjrEOwjAMRP8lM6ocQmnC2JkJidlyGzspoBaRZkL8O0ZigOWWd-90T4NU14y18AMHGq88R3MwAxVuPqA5LilNZ6X9F25-jUwla33sCByL5daBlXYLnsHG2AUv3hMIiRNm2ascLzSnBW-alRKrfF-xP_3PTvrBwc6H8HoDkZY1ug:1hdgHk:Nb0cIJsNJJ_wtvYaSA_Mb06wXFo";
+        expires=Wed, 03-Jul-2019 19:30:20 GMT; httponly; Max-Age=1209600; Path=/
       Node:
-      - app-server-app-v1-1
+      - app-server-app-0
       X-Ua-Compatible:
       - IE=edge,chrome=1
       X-Proxy:
@@ -62,10 +62,10 @@ http_interactions:
       X-Backend:
       - www_be
       X-Box:
-      - app_2
+      - app_1
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"login":{"user":{"apiKey":"14651f0f-8888-4100-9ab7-cf4b2dffb31e"}}}}'
     http_version:
-  recorded_at: Wed, 19 Jun 2019 19:31:47 GMT
+  recorded_at: Wed, 19 Jun 2019 19:30:20 GMT
 recorded_with: VCR 4.0.0

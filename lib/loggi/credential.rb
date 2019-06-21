@@ -3,7 +3,6 @@
 module Loggi
   class Credential
     attr_accessor :email, :password, :api_key
-    class UserNotFoundError < StandardError; end
 
     def initialize(options)
       @email = options[:email]
@@ -12,12 +11,7 @@ module Loggi
     end
 
     def authenticate!
-      Services::Authentication.new(self).request!.tap do |response|
-        user = response[:login][:user]
-        raise UserNotFoundError unless user
-
-        @api_key = user[:apiKey]
-      end
+      Services::Authentication.authenticate!(self)
     end
   end
 end
