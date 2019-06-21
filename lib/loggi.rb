@@ -7,9 +7,5 @@ require 'loggi/services/base'
 require 'loggi/services/authentication'
 require 'http'
 require 'active_support/all'
-require 'pry'
 
-module Loggi
-  class Error < StandardError; end
-  # Your code goes here...
-end
+module Loggi; end
