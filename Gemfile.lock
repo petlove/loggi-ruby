@@ -2,6 +2,8 @@ PATH
   remote: .
   specs:
     loggi (0.1.0)
+      activesupport (~> 5.0)
+      http (~> 4.1.1)
 
 GEM
   remote: https://rubygems.org/
