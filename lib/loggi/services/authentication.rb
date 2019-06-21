@@ -8,7 +8,7 @@ module Loggi
       class << self
         def authenticate!(credential)
           response = new(credential).request!
-          user = response[:login][:user]
+          user = response.dig(:login, :user)
           raise UserNotFoundError unless user
 
           credential.api_key = user[:apiKey]

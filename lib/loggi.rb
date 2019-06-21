@@ -8,6 +8,7 @@ require 'loggi/charge_option'
 require 'loggi/shop'
 require 'loggi/services/base'
 require 'loggi/services/authentication'
+require 'loggi/services/shops'
 require 'http'
 require 'active_support/all'
 

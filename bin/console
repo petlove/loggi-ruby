@@ -6,6 +6,7 @@ require 'loggi'
 require 'irb'
 require 'dotenv'
 require 'awesome_print'
+require 'pry'
 
 Dotenv.load('.env.development')
 

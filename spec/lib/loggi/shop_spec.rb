@@ -52,4 +52,14 @@ RSpec.describe Loggi::Shop, type: :model do
       end
     end
   end
+
+  describe '#list' do
+    subject { described_class.list }
+
+    after { subject }
+
+    it 'should call shops service' do
+      expect(Loggi::Services::Shops).to receive(:list).once
+    end
+  end
 end
