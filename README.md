@@ -16,6 +16,15 @@ And then execute:U
 
 ## Usage
 
+#### Authentication
+You should use the model `Loggi::Crendetial` to generate your `api_key`.
+```ruby
+credential = Loggi::Credential.new(email: email, password: password)
+credential.authenticate!
+credential.api_key
+# => 14651f0f-8888-4100-9ab7-cf4b2dffb31e
+```
+
 #### Configure the credential
 You should configure your credential to have access to authenticated resources with this code:
 ```ruby
@@ -25,7 +34,7 @@ Loggi::Configuration.configure(Loggi::Credential.new(
                               ))
 ```
 
- If you want to request to authenticate all times that you configure your application, you may use this code:
+If you want to request to authenticate all times that you configure your application, you may use this code:
 ```ruby
 Loggi::Configuration.configure(Loggi::Credential.new(
                                 email: ENV['LOGGI_API_EMAIL'],
@@ -33,13 +42,10 @@ Loggi::Configuration.configure(Loggi::Credential.new(
                               ))
 ```
 
-#### Authentication
-You should use the model `Loggi::Crendetial` to generate your `api_key`.
+#### Shops
+You should use the model `Loggi::Shop` to list your shops.
 ```ruby
-credential = Loggi::Credential.new(email: email, password: password)
-credential.authenticate!
-credential.api_key
-# => 14651f0f-8888-4100-9ab7-cf4b2dffb31e
+Loggi::Shop.list
 ```
 
 ## Development
@@ -52,7 +58,7 @@ Bug reports and pull requests are welcome!
 
 ### Remaining Loggi's features
 - [~Authentication~](https://docs.api.loggi.com/reference/autorizacao#consultar-api-key)
-- [List shops](https://docs.api.loggi.com/reference/lojas#listagem-de-lojas)
+- [~List shops~](https://docs.api.loggi.com/reference/lojas#listagem-de-lojas)
 - [List packages](https://docs.api.loggi.com/reference/pacotes#listagem-de-pacotes)
 - [Package's history](https://docs.api.loggi.com/reference/pacotes#historico-de-pacote)
 - [Package's status](https://docs.api.loggi.com/reference/pacotes#status-dos-pacotes)
