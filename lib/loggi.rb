@@ -3,6 +3,7 @@
 require 'loggi/version'
 require 'loggi/configuration'
 require 'loggi/credential'
+require 'loggi/address'
 require 'loggi/services/base'
 require 'loggi/services/authentication'
 require 'http'
