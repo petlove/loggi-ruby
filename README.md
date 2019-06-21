@@ -16,6 +16,23 @@ And then execute:U
 
 ## Usage
 
+#### Configure the credential
+You should configure your credential to have access to authenticated resources with this code:
+```ruby
+Loggi::Configuration.configure(Loggi::Credential.new(
+                                email: ENV['LOGGI_API_EMAIL'],
+                                api_key: ENV['LOGGI_API_KEY']
+                              ))
+```
+
+ If you want to request to authenticate all times that you configure your application, you may use this code:
+```ruby
+Loggi::Configuration.configure(Loggi::Credential.new(
+                                email: ENV['LOGGI_API_EMAIL'],
+                                password: ENV['LOGGI_API_PASSWORD']
+                              ))
+```
+
 #### Authentication
 You should use the model `Loggi::Crendetial` to generate your `api_key`.
 ```ruby
@@ -47,7 +64,7 @@ Bug reports and pull requests are welcome!
 - [Edit an order](https://docs.api.loggi.com/reference/pedidos#edi%C3%A7%C3%A3o-de-pedido)
 
 ### Other remaining features
-- ~Config Travis as a CI~
+- ~Config Travis as the CI~
 
 ### Some references
 - [Loggi's getting started](https://docs.api.loggi.com/docs/getting-started)
