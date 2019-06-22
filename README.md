@@ -10,7 +10,7 @@ Add this line to your application's Gemfile:
 gem 'loggi', github: 'petlove/loggi-ruby'
 ```
 
-And then execute:U
+And then execute:
 
     $ bundle
 
@@ -119,7 +119,7 @@ Bug reports and pull requests are welcome!
 - [List packages](https://docs.api.loggi.com/reference/pacotes#listagem-de-pacotes)
 - [Package's history](https://docs.api.loggi.com/reference/pacotes#historico-de-pacote)
 - [Package's status](https://docs.api.loggi.com/reference/pacotes#status-dos-pacotes)
-- [Create an order](https://docs.api.loggi.com/reference/pedidos#criacao-de-pedido)
+- [~Create an order~](https://docs.api.loggi.com/reference/pedidos#criacao-de-pedido)
 - [Estimate an order by geolocation](https://docs.api.loggi.com/reference/pedidos#estimar-precos-de-pedido)
 - [Estimate an order by package and pickups](https://docs.api.loggi.com/reference/pedidos#estimativa-com-endereco)
 - [Remake an order](https://docs.api.loggi.com/reference/pedidos#refazer-um-pedido)
