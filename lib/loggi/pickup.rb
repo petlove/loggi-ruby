@@ -2,10 +2,10 @@
 
 module Loggi
   class Pickup < Base
-    attr_accessor :address
+    attr_accessor :address, :instructions
 
     def initialize(options)
-      @address = build_nested(options, :address, Address)
+      @instructions = options[:instructions]
     end
   end
 end

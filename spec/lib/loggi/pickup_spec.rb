@@ -8,6 +8,7 @@ RSpec.describe Loggi::Pickup, type: :model do
       let(:options) { {} }
 
       it 'shouldnt full any field' do
+        expect(subject.instructions).to be_nil
         expect(subject.address).to be_nil
       end
     end
@@ -15,9 +16,10 @@ RSpec.describe Loggi::Pickup, type: :model do
     context 'with options' do
       context 'with nested models' do
         let(:address) { build :address }
-        let(:options) { { address: address } }
+        let(:options) { { address: address, instructions: 'Pegar no balcão' } }
 
         it 'should full all fields' do
+          expect(subject.instructions).to eq('Pegar no balcão')
           expect(subject.address).to eq(address)
         end
       end
@@ -33,11 +35,13 @@ RSpec.describe Loggi::Pickup, type: :model do
               lng: -46.6516703,
               formatted_address: 'R. Augusta, 588 - Consola\\u00e7\\u00e3o, S\\u00e3o Paulo - SP, Brazil',
               complement: '8o andar'
-            }
+            },
+            instructions: 'Pegar no balcão'
           }
         end
 
         it 'should full all fields' do
+          expect(subject.instructions).to eq('Pegar no balcão')
           expect(subject.address).to be_a(Loggi::Address)
         end
       end
