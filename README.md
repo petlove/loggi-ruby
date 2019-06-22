@@ -48,6 +48,63 @@ You should use the model `Loggi::Shop` to list your shops.
 Loggi::Shop.list
 ```
 
+#### Creating orders
+You should use the model `Loggi::Order` to create your orders.
+```ruby
+Loggi::Order.create!(
+  shop: Loggi::Shop.new,
+  pickups: [Loggi::Pickup.new],
+  packages: [Loggi::Package.new]
+)
+```
+
+The options could be a Hash like this:
+```ruby
+Loggi::Order.create!(
+  shop: {
+    name: 'Coelho Burguer',
+    pk: 3987
+  },
+  pickups: [
+    {
+      address: {
+        lat: -23.5516433,
+        lng: -46.6516703,
+        formatted_address: 'Av. Dr. Cardoso de Melo, 1155 - Vila Olimpia, São Paulo - SP, 04548-004, Brazil',
+        complement: '8o andar'
+      },
+      instructions: 'Pegar no balcão'
+    }
+  ],
+  packages: [
+    {
+      pickup_index: 0,
+      recipient: {
+        name: 'Client XYZ',
+        phone: '1199678890'
+      },
+      address: {
+        lat: -23.5516433,
+        lng: -46.6516703,
+        formatted_address: 'R. Sansão Alves dos Santos, 138, Cidade Monções São Paulo - SP Brasil',
+        complement: '8o andar'
+      },
+      charge: {
+        value: 10,
+        method: 2,
+        change: 5
+      },
+      dimensions: {
+        width: 10,
+        height: 11,
+        length: 12
+      },
+      instructions: 'Deixar na porta'
+    }
+  ]
+)
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

@@ -11,7 +11,7 @@ FactoryBot.define do
     address_st { 'Rua Augusta' }
     lat { -23.5516433 }
     lng { -46.6516703 }
-    formatted_address { 'R. Augusta, 588 - Consola\\u00e7\\u00e3o, S\\u00e3o Paulo - SP, Brazil' }
+    formatted_address { 'Av. Dr. Cardoso de Melo, 1155 - Vila Olimpia, São Paulo - SP, 04548-004, Brazil' }
     complement { '8o andar' }
   end
 end

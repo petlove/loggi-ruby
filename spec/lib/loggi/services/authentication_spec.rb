@@ -59,7 +59,7 @@ RSpec.describe Loggi::Services::Authentication, type: :model do
     context 'without correct params' do
       let(:credential) { build :credential, password: '1234' }
 
-      it 'should raise bad request HTTP error', :vcr do
+      it 'should raise UserNotFoundError', :vcr do
         expect(credential.api_key).to be_nil
         expect { subject }.to raise_error(described_class::UserNotFoundError)
       end
