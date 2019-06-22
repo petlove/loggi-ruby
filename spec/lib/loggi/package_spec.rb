@@ -8,7 +8,16 @@ RSpec.describe Loggi::Package, type: :model do
       let(:options) { {} }
 
       it 'shouldnt full any field' do
+        expect(subject.recipient).to be_nil
         expect(subject.address).to be_nil
+        expect(subject.charge).to be_nil
+        expect(subject.dimensions).to be_nil
+        expect(subject.pickup_index).to eq(0)
+        expect(subject.instructions).to be_nil
+        expect(subject.pk).to be_nil
+        expect(subject.status).to be_nil
+        expect(subject.pickup_waypoint).to be_nil
+        expect(subject.waypoint).to be_nil
       end
     end
 
@@ -18,28 +27,41 @@ RSpec.describe Loggi::Package, type: :model do
         let(:address) { build :address }
         let(:charge) { build :charge }
         let(:dimensions) { build :dimensions }
+        let(:waypoint) { build :waypoint }
+        let(:pickup_waypoint) { build :waypoint }
         let(:options) do
           {
             pickup_index: 0,
             recipient: recipient,
             address: address,
             charge: charge,
-            dimensions: dimensions
+            dimensions: dimensions,
+            instructions: 'Deixar pedido na escada',
+            pk: 231_777,
+            status: 'allocating',
+            waypoint: waypoint,
+            pickup_waypoint: pickup_waypoint
           }
         end
 
         it 'should full all fields' do
+          expect(subject.instructions).to eq('Deixar pedido na escada')
           expect(subject.pickup_index).to eq(0)
           expect(subject.recipient).to eq(recipient)
           expect(subject.address).to eq(address)
           expect(subject.charge).to eq(charge)
-          expect(subject.dimensions).to eq(dimensions)
+          expect(subject.pk).to eq(231_777)
+          expect(subject.status).to eq('allocating')
+          expect(subject.pickup_waypoint).to eq(pickup_waypoint)
+          expect(subject.waypoint).to eq(waypoint)
         end
       end
 
       context 'with hash' do
         let(:options) do
           {
+            pk: 231_777,
+            status: 'allocating',
             pickup_index: 0,
             recipient: {
               name: 'Client XYZ',
@@ -63,16 +85,36 @@ RSpec.describe Loggi::Package, type: :model do
               width: 10,
               height: 11,
               length: 12
+            },
+            instructions: 'Deixar pedido na escada',
+            waypoint: {
+              instructions: 'Entregar pedido de Client Xyz, cobrar R$ 10.00 com cartão de débito. (Deixar pedido na escada)',
+              index: 1,
+              index_display: 'B',
+              eta: 1_561_234_918,
+              legDistance: 2225
+            },
+            pickup_waypoint: {
+              instructions: 'Entregar pedido de Client Xyz, cobrar R$ 10.00 com cartão de débito. (Deixar pedido na escada)',
+              index: 1,
+              index_display: 'B',
+              eta: 1_561_234_918,
+              legDistance: 2225
             }
           }
         end
 
         it 'should full all fields' do
+          expect(subject.instructions).to eq('Deixar pedido na escada')
           expect(subject.pickup_index).to eq(0)
           expect(subject.recipient).to be_a(Loggi::Recipient)
           expect(subject.address).to be_a(Loggi::Address)
           expect(subject.charge).to be_a(Loggi::Charge)
           expect(subject.dimensions).to be_a(Loggi::Dimensions)
+          expect(subject.pk).to eq(231_777)
+          expect(subject.status).to eq('allocating')
+          expect(subject.pickup_waypoint).to be_a(Loggi::Waypoint)
+          expect(subject.waypoint).to be_a(Loggi::Waypoint)
         end
       end
     end
