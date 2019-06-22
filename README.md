@@ -128,6 +128,7 @@ Bug reports and pull requests are welcome!
 
 ### Other remaining features
 - ~Config Travis as the CI~
+- Config fields requested in each service by Loggi::Configuration
 
 ### Some references
 - [Loggi's getting started](https://docs.api.loggi.com/docs/getting-started)
