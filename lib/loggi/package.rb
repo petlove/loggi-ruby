@@ -6,10 +6,10 @@ module Loggi
 
     def initialize(options)
       @pickup_index = options[:pickup_index] || options[:pickupIndex] || 0
-      @recipient = build_nested(options, :recipient, Recipient)
-      @address = build_nested(options, :address, Address)
-      @charge = build_nested(options, :charge, Charge)
-      @dimensions = build_nested(options, :dimensions, Dimensions)
+      @recipient = build_nested(options, %i[recipient], Recipient)
+      @address = build_nested(options, %i[address], Address)
+      @charge = build_nested(options, %i[charge], Charge)
+      @dimensions = build_nested(options, %i[dimensions], Dimensions)
     end
   end
 end
