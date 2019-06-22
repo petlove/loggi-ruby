@@ -7,8 +7,11 @@ RSpec.describe Loggi::Services::Base, type: :model do
     context 'without credential' do
       let(:credential) { nil }
 
-      it 'shouldnt have a credential' do
-        expect(subject.credential).to be_nil
+      it 'shouldnt have a valid credential' do
+        expect(subject.credential).to be_a(Loggi::Credential)
+        expect(subject.credential.email).to be_nil
+        expect(subject.credential.api_key).to be_nil
+        expect(subject.credential.password).to be_nil
       end
     end
 
