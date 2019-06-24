@@ -3,7 +3,7 @@
 module Loggi
   module Services
     class Base < Loggi::Base
-      class UnlessCredentialHeaders < StandardError; end
+      class WithoutCredentialHeadersError < StandardError; end
 
       attr_accessor :credential
 
@@ -40,7 +40,7 @@ module Loggi
       end
 
       def authorization_key
-        raise UnlessCredentialHeaders unless @credential&.api_key || @credential&.email
+        raise WithoutCredentialHeadersError unless @credential&.api_key || @credential&.email
 
         "ApiKey #{@credential.email}:#{@credential.api_key}"
       end
