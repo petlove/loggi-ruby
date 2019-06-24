@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://staging.loggi.com/graphql
+    body:
+      encoding: UTF-8
+      string: '{"query":"mutation { createOrder(input: { shopId: 10 pickups: [ { address:
+        { lat: -23.5516433 lng: -46.6516703 address: \"Av. Dr. Cardoso de Melo, 1155
+        - Vila Olimpia, São Paulo - SP, 04548-004, Brazil\" complement: \"8o andar\"
+        } instructions: \"Deixar pedido na escada\" } ] packages: [ { pickupIndex:
+        0 recipient: { name: \"Client XYZ\" phone: \"1199678890\" } address: { lat:
+        -23.5516433 lng: -46.6516703 address: \"R. Sansão Alves dos Santos, 138, Cidade
+        Monções São Paulo - SP Brasil\" complement: \"8o andar\" } charge: { value:
+        \"10.0\" method: 2 change: \"5.0\" } dimensions: { width: 10 height: 10 length:
+        5 } instructions: \"Deixar pedido na escada\" } ] }) { success shop { pk name
+        } orders { pk packages { pk status pickupWaypoint { instructions index indexDisplay
+        eta legDistance } waypoint { instructions index indexDisplay eta legDistance
+        } } } errors { field message } } }"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - ApiKey loggistaging@loggi.com:14651f0f-8888-4100-9ab7-cf4b2dffb31e
+      Connection:
+      - close
+      Host:
+      - staging.loggi.com
+      User-Agent:
+      - http.rb/4.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 22 Jun 2019 22:01:56 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Access-Control-Allow-Headers:
+      - Authorization,Content-Type,Accept,Origin,User-Agent,DNT,Cache-Control,X-Mx-ReqToken,Keep-Alive,X-Requested-With,If-Modified-Since
+      Content-Language:
+      - pt-br
+      Vary:
+      - Cookie, Accept-Language
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Lu:
+      - 60855;304899
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PATCH
+      X-Wsgi-Duration:
+      - '0.216698'
+      Set-Cookie:
+      - csrftoken=p4htsVizDhyhaCnuZ5miAX7p1CJQysl6; expires=Sat, 20-Jun-2020 22:01:56
+        GMT; Max-Age=31449600; Path=/
+      - django_language=pt_BR; Path=/
+      - sessionid="eyJkamFuZ29fbGFuZ3VhZ2UiOiJwdF9CUiJ9:1heo56:DdT7ayrZVmno5-aSA2qig0HM384";
+        expires=Sat, 06-Jul-2019 22:01:56 GMT; httponly; Max-Age=1209600; Path=/
+      Node:
+      - app-server-app-0
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      X-Proxy:
+      - staging-haproxy-01
+      X-Backend:
+      - www_be
+      X-Box:
+      - app_1
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"createOrder":{"success":false,"shop":{"pk":10,"name":"teste"},"orders":[],"errors":[{"field":"package_0","message":"Local
+        fora da \u00e1rea de cobertura para a cidade Rio de Janeiro"},{"field":"package_1","message":"Local
+        fora da \u00e1rea de cobertura para a cidade Rio de Janeiro"}]}}}'
+    http_version:
+  recorded_at: Sat, 22 Jun 2019 22:01:56 GMT
+recorded_with: VCR 4.0.0

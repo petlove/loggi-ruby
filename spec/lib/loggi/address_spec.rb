@@ -14,6 +14,7 @@ RSpec.describe Loggi::Address, type: :model do
         expect(subject.lat).to be_nil
         expect(subject.lng).to be_nil
         expect(subject.formatted_address).to be_nil
+        expect(subject.complement).to be_nil
       end
     end
 
@@ -30,7 +31,8 @@ RSpec.describe Loggi::Address, type: :model do
           address_data: address_data,
           lat: -23.5516433,
           lng: -46.6516703,
-          formatted_address: 'R. Augusta, 588 - Consola\\u00e7\\u00e3o, S\\u00e3o Paulo - SP, Brazil'
+          formatted_address: 'R. Augusta, 588 - Consola\\u00e7\\u00e3o, S\\u00e3o Paulo - SP, Brazil',
+          complement: '8o andar'
         }
       end
 
@@ -41,6 +43,7 @@ RSpec.describe Loggi::Address, type: :model do
         expect(subject.lat).to eq(-23.5516433)
         expect(subject.lng).to eq(-46.6516703)
         expect(subject.formatted_address).to eq('R. Augusta, 588 - Consola\\u00e7\\u00e3o, S\\u00e3o Paulo - SP, Brazil')
+        expect(subject.complement).to eq('8o andar')
       end
     end
   end

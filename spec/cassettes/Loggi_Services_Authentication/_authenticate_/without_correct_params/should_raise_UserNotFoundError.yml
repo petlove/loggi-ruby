@@ -24,7 +24,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Fri, 21 Jun 2019 17:34:24 GMT
+      - Sat, 22 Jun 2019 21:58:41 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -44,13 +44,13 @@ http_interactions:
       Access-Control-Allow-Methods:
       - GET, POST, OPTIONS, PATCH
       X-Wsgi-Duration:
-      - '0.158034'
+      - '0.248025'
       Set-Cookie:
-      - csrftoken=hFuOckwRlE2FgmTfLadIG24pNX48yDMD; expires=Fri, 19-Jun-2020 17:34:24
+      - csrftoken=n6Lf9ofdi4bEBNLi6Hzij3Ghlt2qK0BG; expires=Sat, 20-Jun-2020 21:58:41
         GMT; Max-Age=31449600; Path=/
       - django_language=pt_BR; Path=/
-      - sessionid="eyJkamFuZ29fbGFuZ3VhZ2UiOiJwdF9CUiJ9:1heNQe:TCaD-F93c3_Aer0dbO-NQsmjXdk";
-        expires=Fri, 05-Jul-2019 17:34:24 GMT; httponly; Max-Age=1209600; Path=/
+      - sessionid="eyJkamFuZ29fbGFuZ3VhZ2UiOiJwdF9CUiJ9:1heo1x:W0H2DE-RABK7SjNMtPRQNrGtcx4";
+        expires=Sat, 06-Jul-2019 21:58:41 GMT; httponly; Max-Age=1209600; Path=/
       Node:
       - app-server-app-v1-1
       X-Ua-Compatible:
@@ -65,5 +65,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"data":{"login":{"user":null}}}'
     http_version: 
-  recorded_at: Fri, 21 Jun 2019 17:34:24 GMT
+  recorded_at: Sat, 22 Jun 2019 21:58:41 GMT
 recorded_with: VCR 4.0.0
