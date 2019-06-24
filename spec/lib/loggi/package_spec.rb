@@ -18,6 +18,9 @@ RSpec.describe Loggi::Package, type: :model do
         expect(subject.status).to be_nil
         expect(subject.pickup_waypoint).to be_nil
         expect(subject.waypoint).to be_nil
+        expect(subject.signed_by_name).to be_nil
+        expect(subject.signature_url).to be_nil
+        expect(subject.statuses).to be_nil
       end
     end
 
@@ -29,6 +32,7 @@ RSpec.describe Loggi::Package, type: :model do
         let(:dimensions) { build :dimensions }
         let(:waypoint) { build :waypoint }
         let(:pickup_waypoint) { build :waypoint }
+        let(:statuses) { build_list :package_status, 1 }
         let(:options) do
           {
             pickup_index: 0,
@@ -40,7 +44,10 @@ RSpec.describe Loggi::Package, type: :model do
             pk: 231_777,
             status: 'allocating',
             waypoint: waypoint,
-            pickup_waypoint: pickup_waypoint
+            pickup_waypoint: pickup_waypoint,
+            signed_by_name: 'Baruch Spinoza',
+            signature_url: 'https://staging.loggi.com/wp-103805-protocolo.png',
+            statuses: statuses
           }
         end
 
@@ -54,6 +61,9 @@ RSpec.describe Loggi::Package, type: :model do
           expect(subject.status).to eq('allocating')
           expect(subject.pickup_waypoint).to eq(pickup_waypoint)
           expect(subject.waypoint).to eq(waypoint)
+          expect(subject.signed_by_name).to eq('Baruch Spinoza')
+          expect(subject.signature_url).to eq('https://staging.loggi.com/wp-103805-protocolo.png')
+          expect(subject.statuses).to eq(statuses)
         end
       end
 
@@ -63,6 +73,15 @@ RSpec.describe Loggi::Package, type: :model do
             pk: 231_777,
             status: 'allocating',
             pickup_index: 0,
+            signed_by_name: 'Baruch Spinoza',
+            signature_url: 'https://staging.loggi.com/wp-103805-protocolo.png',
+            statuses: [{
+              status: 'ns',
+              status_display: 'Não iniciada',
+              detailed_status_display: 'Agendado',
+              status_code: 1,
+              updated: '2019-04-24 13:48:33.126401'
+            }],
             recipient: {
               name: 'Client XYZ',
               phone: '1199678890'
@@ -115,6 +134,9 @@ RSpec.describe Loggi::Package, type: :model do
           expect(subject.status).to eq('allocating')
           expect(subject.pickup_waypoint).to be_a(Loggi::Waypoint)
           expect(subject.waypoint).to be_a(Loggi::Waypoint)
+          expect(subject.signed_by_name).to eq('Baruch Spinoza')
+          expect(subject.signature_url).to eq('https://staging.loggi.com/wp-103805-protocolo.png')
+          expect(subject.statuses.all? { |s| s.is_a?(Loggi::PackageStatus) }).to be_truthy
         end
       end
     end
