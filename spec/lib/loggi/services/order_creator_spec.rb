@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Loggi::Services::CreateOrder, type: :model do
+RSpec.describe Loggi::Services::OrderCreator, type: :model do
   describe '#initialize' do
     subject { described_class.new(options) }
 
@@ -126,7 +126,7 @@ RSpec.describe Loggi::Services::CreateOrder, type: :model do
   end
 
   describe '#query' do
-    subject { build(:services_create_order).query }
+    subject { build(:services_order_creator).query }
 
     let(:template) do
       <<-QUERY
@@ -212,7 +212,7 @@ RSpec.describe Loggi::Services::CreateOrder, type: :model do
   end
 
   describe '#login_required?' do
-    let(:instance) { build(:services_create_order) }
+    let(:instance) { build(:services_order_creator) }
     subject { instance.login_required? }
 
     it 'should be login required' do
@@ -225,7 +225,7 @@ RSpec.describe Loggi::Services::CreateOrder, type: :model do
     subject { instance.request! }
 
     context 'with incorrect params' do
-      let(:instance) { build(:services_create_order) }
+      let(:instance) { build(:services_order_creator) }
 
       before { instance.packages.first.address.formatted_address = '' }
 
@@ -235,7 +235,7 @@ RSpec.describe Loggi::Services::CreateOrder, type: :model do
     end
 
     context 'with correct params' do
-      let(:instance) { build(:services_create_order) }
+      let(:instance) { build(:services_order_creator) }
 
       it 'should create the orders', :vcr do
         expect(subject[:createOrder]).not_to be_nil
@@ -249,15 +249,15 @@ RSpec.describe Loggi::Services::CreateOrder, type: :model do
     subject { instance.create! }
 
     context 'with incorrect params' do
-      let(:instance) { build(:services_create_order, shop: build(:shop, pk: 10)) }
+      let(:instance) { build(:services_order_creator, shop: build(:shop, pk: 10)) }
 
-      it 'should raise CreateOrderError', :vcr do
-        expect { subject }.to raise_error(described_class::CreateOrderError)
+      it 'should raise OrderCreatorError', :vcr do
+        expect { subject }.to raise_error(described_class::OrderCreatorError)
       end
     end
 
     context 'with correct params' do
-      let(:instance) { build(:services_create_order) }
+      let(:instance) { build(:services_order_creator) }
 
       it 'should create the orders', :vcr do
         expect(subject.all? { |s| s.is_a?(Loggi::Order) }).to be_truthy

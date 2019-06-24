@@ -2,8 +2,8 @@
 
 module Loggi
   module Services
-    class CreateOrder < Base
-      class CreateOrderError < StandardError; end
+    class OrderCreator < Base
+      class OrderCreatorError < StandardError; end
 
       attr_accessor :shop, :pickups, :packages
 
@@ -17,7 +17,7 @@ module Loggi
       def create!
         response = request!
         orders = response.dig(:createOrder, :orders)
-        raise CreateOrderError, response.dig(:createOrder, :errors).to_json unless orders&.any?
+        raise OrderCreatorError, response.dig(:createOrder, :errors).to_json unless orders&.any?
 
         orders.map { |order| Loggi::Order.new(order) }
       end

@@ -17,7 +17,7 @@ require 'loggi/order'
 require 'loggi/services/base'
 require 'loggi/services/authentication'
 require 'loggi/services/shops'
-require 'loggi/services/create_order'
+require 'loggi/services/order_creator'
 require 'http'
 require 'active_support/all'
 

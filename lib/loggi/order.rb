@@ -11,7 +11,7 @@ module Loggi
 
     class << self
       def create!(options)
-        Services::CreateOrder.new(options).create!
+        Services::OrderCreator.new(options).create!
       end
     end
   end

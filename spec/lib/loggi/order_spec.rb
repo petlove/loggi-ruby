@@ -90,7 +90,7 @@ RSpec.describe Loggi::Order, type: :model do
     after { subject }
 
     it 'should call create order service' do
-      expect_any_instance_of(Loggi::Services::CreateOrder).to receive(:create!).once
+      expect_any_instance_of(Loggi::Services::OrderCreator).to receive(:create!).once
     end
   end
 end
