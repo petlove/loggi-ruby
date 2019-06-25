@@ -21,6 +21,9 @@ RSpec.describe Loggi::Package, type: :model do
         expect(subject.signed_by_name).to be_nil
         expect(subject.signature_url).to be_nil
         expect(subject.statuses).to be_nil
+        expect(subject.status_code).to be_nil
+        expect(subject.status_code_display).to be_nil
+        expect(subject.tracking_urls).to be_nil
       end
     end
 
@@ -47,7 +50,10 @@ RSpec.describe Loggi::Package, type: :model do
             pickup_waypoint: pickup_waypoint,
             signed_by_name: 'Baruch Spinoza',
             signature_url: 'https://staging.loggi.com/wp-103805-protocolo.png',
-            statuses: statuses
+            statuses: statuses,
+            status_code: 1,
+            status_code_display: 'Agendado',
+            tracking_urls: %w[loggi.com/c/D4qcua9r/ loggi.com/c/62xpHC25/]
           }
         end
 
@@ -64,6 +70,9 @@ RSpec.describe Loggi::Package, type: :model do
           expect(subject.signed_by_name).to eq('Baruch Spinoza')
           expect(subject.signature_url).to eq('https://staging.loggi.com/wp-103805-protocolo.png')
           expect(subject.statuses).to eq(statuses)
+          expect(subject.status_code).to eq(1)
+          expect(subject.status_code_display).to eq('Agendado')
+          expect(subject.tracking_urls).to eq(%w[loggi.com/c/D4qcua9r/ loggi.com/c/62xpHC25/])
         end
       end
 
@@ -119,7 +128,10 @@ RSpec.describe Loggi::Package, type: :model do
               index_display: 'B',
               eta: 1_561_234_918,
               legDistance: 2225
-            }
+            },
+            status_code: 1,
+            status_code_display: 'Agendado',
+            tracking_urls: %w[loggi.com/c/D4qcua9r/ loggi.com/c/62xpHC25/]
           }
         end
 
@@ -137,6 +149,9 @@ RSpec.describe Loggi::Package, type: :model do
           expect(subject.signed_by_name).to eq('Baruch Spinoza')
           expect(subject.signature_url).to eq('https://staging.loggi.com/wp-103805-protocolo.png')
           expect(subject.statuses.all? { |s| s.is_a?(Loggi::PackageStatus) }).to be_truthy
+          expect(subject.status_code).to eq(1)
+          expect(subject.status_code_display).to eq('Agendado')
+          expect(subject.tracking_urls).to eq(%w[loggi.com/c/D4qcua9r/ loggi.com/c/62xpHC25/])
         end
       end
     end

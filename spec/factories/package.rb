@@ -17,5 +17,8 @@ FactoryBot.define do
     pickup_waypoint { build :waypoint }
     waypoint { build :waypoint }
     statuses { build_list :package_status, 1 }
+    status_code { 1 }
+    status_code_display { 'Agendado' }
+    tracking_urls { %w[loggi.com/c/D4qcua9r/ loggi.com/c/62xpHC25/] }
   end
 end

@@ -3,7 +3,8 @@
 module Loggi
   class Package < Base
     attr_accessor :pickup_index, :recipient, :address, :charge, :dimensions, :instructions, :pk, :status,
-                  :pickup_waypoint, :waypoint, :signed_by_name, :signature_url, :statuses
+                  :pickup_waypoint, :waypoint, :signed_by_name, :signature_url, :statuses, :status_code,
+                  :status_code_display, :tracking_urls
 
     def initialize(options)
       @pk = options[:pk]
@@ -16,6 +17,9 @@ module Loggi
       @address = build_nested(options, %i[address], Address)
       @charge = build_nested(options, %i[charge], Charge)
       @dimensions = build_nested(options, %i[dimensions], Dimensions)
+      @status_code = options[:status_code] || options[:statusCode]
+      @status_code_display = options[:status_code_display] || options[:statusCodeDisplay]
+      @tracking_urls = options[:tracking_urls]
       build_history_fields(options)
     end
 
