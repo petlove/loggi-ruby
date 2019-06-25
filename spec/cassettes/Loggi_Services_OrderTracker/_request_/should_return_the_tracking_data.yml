@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://staging.loggi.com/graphql
+    body:
+      encoding: UTF-8
+      string: '{"query":"query { retrieveOrderWithPk(orderPk: 97269) { status statusDisplay
+        originalEta totalTime pricing { totalCm } packages { pk status statusCode
+        statusCodeDisplay shareds { edges { node { trackingUrl } } } } currentDriverPosition
+        { lat lng currentWaypointIndex currentWaypointIndexDisplay } } }"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - ApiKey loggistaging@loggi.com:14651f0f-8888-4100-9ab7-cf4b2dffb31e
+      Connection:
+      - close
+      Host:
+      - staging.loggi.com
+      User-Agent:
+      - http.rb/4.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 25 Jun 2019 17:32:51 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Access-Control-Allow-Headers:
+      - Authorization,Content-Type,Accept,Origin,User-Agent,DNT,Cache-Control,X-Mx-ReqToken,Keep-Alive,X-Requested-With,If-Modified-Since
+      Content-Language:
+      - pt-br
+      Vary:
+      - Cookie, Accept-Language
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Lu:
+      - 60855;304899
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PATCH
+      X-Wsgi-Duration:
+      - '0.163335'
+      Set-Cookie:
+      - csrftoken=G4XSvejMOo6b040c2TMGVI9mcbGPUH4Y; expires=Tue, 23-Jun-2020 17:32:51
+        GMT; Max-Age=31449600; Path=/
+      - django_language=pt_BR; Path=/
+      - sessionid="eyJkamFuZ29fbGFuZ3VhZ2UiOiJwdF9CUiJ9:1hfpJL:9kZjoaW4HOzNwz5VdzfYgguvGs0";
+        expires=Tue, 09-Jul-2019 17:32:51 GMT; httponly; Max-Age=1209600; Path=/
+      Node:
+      - app-server-app-0
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      X-Proxy:
+      - staging-haproxy-01
+      X-Backend:
+      - www_be
+      X-Box:
+      - app_1
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"retrieveOrderWithPk":{"status":"allocating","statusDisplay":"Em
+        aloca\u00e7\u00e3o","originalEta":2033,"totalTime":null,"pricing":{"totalCm":"8.90"},"packages":[{"pk":231814,"status":"allocating","statusCode":1,"statusCodeDisplay":"Agendado","shareds":{"edges":[{"node":{"trackingUrl":"loggi.com/c/D4qcua9r/"}},{"node":{"trackingUrl":"loggi.com/c/62xpHC25/"}}]}}],"currentDriverPosition":null}}}'
+    http_version:
+  recorded_at: Tue, 25 Jun 2019 17:32:51 GMT
+recorded_with: VCR 4.0.0

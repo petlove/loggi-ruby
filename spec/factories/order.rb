@@ -6,5 +6,11 @@ FactoryBot.define do
 
     pk { 10 }
     packages { build_list(:package, 1) }
+    status { 'allocating' }
+    status_display { 'Em alocação' }
+    original_eta { 2033 }
+    total_time { nil }
+    pricing { build :order_pricing }
+    current_driver_position { build :driver_position }
   end
 end

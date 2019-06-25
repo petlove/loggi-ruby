@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://staging.loggi.com/graphql
+    body:
+      encoding: UTF-8
+      string: '{"query":"query { packageHistory(packageId: 231814) { signatureUrl
+        signedByName statuses { status statusDisplay detailedStatusDisplay statusCode
+        updated } } }"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - ApiKey loggistaging@loggi.com:14651f0f-8888-4100-9ab7-cf4b2dffb31e
+      Connection:
+      - close
+      Host:
+      - staging.loggi.com
+      User-Agent:
+      - http.rb/4.1.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 25 Jun 2019 00:05:52 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Access-Control-Allow-Headers:
+      - Authorization,Content-Type,Accept,Origin,User-Agent,DNT,Cache-Control,X-Mx-ReqToken,Keep-Alive,X-Requested-With,If-Modified-Since
+      Content-Language:
+      - pt-br
+      Vary:
+      - Cookie, Accept-Language
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Lu:
+      - 60855;304899
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PATCH
+      X-Wsgi-Duration:
+      - '0.135513'
+      Set-Cookie:
+      - csrftoken=CaynB4AopRg3ylhQBBiPjyt6GyKqPN6Z; expires=Tue, 23-Jun-2020 00:05:52
+        GMT; Max-Age=31449600; Path=/
+      - django_language=pt_BR; Path=/
+      - sessionid="eyJkamFuZ29fbGFuZ3VhZ2UiOiJwdF9CUiJ9:1hfYy8:vSB9I2QW0Uq1J4_7632WaMsxwxE";
+        expires=Tue, 09-Jul-2019 00:05:52 GMT; httponly; Max-Age=1209600; Path=/
+      Node:
+      - app-server-app-0
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      X-Proxy:
+      - staging-haproxy-01
+      X-Backend:
+      - www_be
+      X-Box:
+      - app_1
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"packageHistory":{"signatureUrl":"","signedByName":null,"statuses":[{"status":"ns","statusDisplay":"N\u00e3o
+        iniciada","detailedStatusDisplay":"Agendado | Previs\u00e3o de chegada: 19:49","statusCode":1,"updated":"2019-06-24
+        19:11:12.121141"}]}}}'
+    http_version:
+  recorded_at: Tue, 25 Jun 2019 00:05:52 GMT
+recorded_with: VCR 4.0.0
