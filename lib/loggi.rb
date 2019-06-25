@@ -19,6 +19,7 @@ require 'loggi/services/base'
 require 'loggi/services/authentication'
 require 'loggi/services/shops'
 require 'loggi/services/order_creator'
+require 'loggi/services/package_history'
 require 'http'
 require 'active_support/all'
 

@@ -105,6 +105,12 @@ Loggi::Order.create!(
 )
 ```
 
+#### Package's History
+You could use this code to get the history about the package:
+```ruby
+  LoggiPackage.new(pk: 10).history!
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -117,7 +123,7 @@ Bug reports and pull requests are welcome!
 - [~Authentication~](https://docs.api.loggi.com/reference/autorizacao#consultar-api-key)
 - [~List shops~](https://docs.api.loggi.com/reference/lojas#listagem-de-lojas)
 - [List packages](https://docs.api.loggi.com/reference/pacotes#listagem-de-pacotes)
-- [Package's history](https://docs.api.loggi.com/reference/pacotes#historico-de-pacote)
+- [~Package's history~](https://docs.api.loggi.com/reference/pacotes#historico-de-pacote)
 - [Package's status](https://docs.api.loggi.com/reference/pacotes#status-dos-pacotes)
 - [~Create an order~](https://docs.api.loggi.com/reference/pedidos#criacao-de-pedido)
 - [Estimate an order by geolocation](https://docs.api.loggi.com/reference/pedidos#estimar-precos-de-pedido)

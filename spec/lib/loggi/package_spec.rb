@@ -141,4 +141,26 @@ RSpec.describe Loggi::Package, type: :model do
       end
     end
   end
+
+  describe '#history!' do
+    let(:instance) { described_class.new({}) }
+    subject { instance.history! }
+
+    after { subject }
+
+    it 'should call PackageHistory service to get the history' do
+      expect_any_instance_of(Loggi::Services::PackageHistory).to receive(:get).and_return({})
+    end
+
+    it 'should apply the history in history fields' do
+      expect_any_instance_of(Loggi::Services::PackageHistory).to receive(:get).and_return(a: 'a', b: 'b')
+      expect(instance).to receive(:build_history_fields).with(a: 'a', b: 'b')
+    end
+
+    it 'should return the instance' do
+      expect_any_instance_of(Loggi::Services::PackageHistory).to receive(:get).and_return(a: 'a', b: 'b')
+      expect(instance).to receive(:build_history_fields).with(a: 'a', b: 'b')
+      is_expected.to eq(instance)
+    end
+  end
 end
