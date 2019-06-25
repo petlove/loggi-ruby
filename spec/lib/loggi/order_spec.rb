@@ -16,11 +16,30 @@ RSpec.describe Loggi::Order, type: :model do
     context 'with options' do
       context 'with nested models' do
         let(:packages) { build_list :package, 1 }
-        let(:options) { { pk: 10, packages: packages } }
+        let(:pricing) { build :order_pricing }
+        let(:current_driver_position) { build :driver_position }
+        let(:options) do
+          {
+            pk: 10,
+            packages: packages,
+            pricing: pricing,
+            current_driver_position: current_driver_position,
+            status: 'allocating',
+            status_display: 'Em alocação',
+            original_eta: 2033,
+            total_time: nil
+          }
+        end
 
         it 'should full all fields' do
           expect(subject.pk).to eq(10)
           expect(subject.packages.all? { |package| package.is_a?(Loggi::Package) }).to be_truthy
+          expect(subject.pricing).to eq(pricing)
+          expect(subject.current_driver_position).to eq(current_driver_position)
+          expect(subject.status).to eq('allocating')
+          expect(subject.status_display).to eq('Em alocação')
+          expect(subject.original_eta).to eq(2033)
+          expect(subject.total_time).to eq(nil)
         end
       end
 
@@ -28,11 +47,27 @@ RSpec.describe Loggi::Order, type: :model do
         let(:options) do
           {
             pk: 10,
+            status: 'allocating',
+            status_display: 'Em alocação',
+            original_eta: 2033,
+            total_time: nil,
+            pricing: {
+              total_cm: '23.50'
+            },
+            current_driver_position: {
+              lat: -23.54532882509319,
+              lng: -46.59718813284402,
+              current_waypoint_index: 0,
+              current_waypoint_index_display: 'A'
+            },
             packages: [
               {
                 pk: 231_777,
                 status: 'allocating',
                 pickup_index: 0,
+                status_code: 1,
+                status_code_display: 'Agendado',
+                tracking_urls: '%w[loggi.com/c/D4qcua9r/ loggi.com/c/62xpHC25/]',
                 recipient: {
                   name: 'Client XYZ',
                   phone: '1199678890'
@@ -79,6 +114,12 @@ RSpec.describe Loggi::Order, type: :model do
         it 'should full all fields' do
           expect(subject.pk).to eq(10)
           expect(subject.packages.all? { |package| package.is_a?(Loggi::Package) }).to be_truthy
+          expect(subject.pricing).to be_a(Loggi::OrderPricing)
+          expect(subject.current_driver_position).to be_a(Loggi::DriverPosition)
+          expect(subject.status).to eq('allocating')
+          expect(subject.status_display).to eq('Em alocação')
+          expect(subject.original_eta).to eq(2033)
+          expect(subject.total_time).to eq(nil)
         end
       end
     end
@@ -91,6 +132,17 @@ RSpec.describe Loggi::Order, type: :model do
 
     it 'should call create order service' do
       expect_any_instance_of(Loggi::Services::OrderCreator).to receive(:create!).once
+    end
+  end
+
+  describe '#track!' do
+    let(:instance) { build :order, pk: 97_269 }
+    subject { instance.track! }
+
+    it 'should call service, update fields and return the same instance' do
+      expect_any_instance_of(Loggi::Services::OrderTracker).to receive(:track!)
+      expect(instance).to receive(:update_fields)
+      is_expected.to eq(instance)
     end
   end
 end
