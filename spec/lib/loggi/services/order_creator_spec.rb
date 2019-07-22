@@ -266,7 +266,7 @@ RSpec.describe Loggi::Services::OrderCreator, type: :model do
       let(:instance) { build(:services_order_creator) }
 
       it 'should create the orders', :vcr do
-        expect(subject.all? { |s| s.is_a?(Loggi::Order) }).to be_truthy
+        expect(subject[:data].all? { |s| s.is_a?(Loggi::Order) }).to be_truthy
       end
     end
   end
