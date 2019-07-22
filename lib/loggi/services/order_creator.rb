@@ -57,6 +57,9 @@ module Loggi
                     indexDisplay
                     eta
                     legDistance
+                    addressSt
+                    addressNumber
+                    addressComplement
                   }
                 }
               }

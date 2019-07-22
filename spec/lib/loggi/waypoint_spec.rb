@@ -13,6 +13,9 @@ RSpec.describe Loggi::Waypoint, type: :model do
         expect(subject.index_display).to be_nil
         expect(subject.eta).to be_nil
         expect(subject.leg_distance).to be_nil
+        expect(subject.address_st).to be_nil
+        expect(subject.address_number).to be_nil
+        expect(subject.address_complement).to be_nil
       end
     end
 
@@ -23,7 +26,10 @@ RSpec.describe Loggi::Waypoint, type: :model do
           index: 1,
           index_display: 'B',
           eta: 1_561_234_918,
-          leg_distance: 2225
+          leg_distance: 2225,
+          address_st: 'Rua Sansão Alves dos Santos',
+          address_number: '200',
+          address_complement: '8o andar'
         }
       end
 
@@ -33,6 +39,9 @@ RSpec.describe Loggi::Waypoint, type: :model do
         expect(subject.index_display).to eq('B')
         expect(subject.eta).to eq(1_561_234_918)
         expect(subject.leg_distance).to eq(2225)
+        expect(subject.address_st).to eq('Rua Sansão Alves dos Santos')
+        expect(subject.address_number).to eq('200')
+        expect(subject.address_complement).to eq('8o andar')
       end
     end
   end
