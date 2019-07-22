@@ -2,7 +2,8 @@
 
 module Loggi
   class Waypoint
-    attr_accessor :instructions, :index, :index_display, :eta, :leg_distance
+    attr_accessor :instructions, :index, :index_display, :eta, :leg_distance, :address_st, :address_number,
+                  :address_complement
 
     def initialize(options)
       @instructions = options[:instructions]
@@ -10,6 +11,9 @@ module Loggi
       @index_display = options[:index_display] || options[:indexDisplay]
       @eta = options[:eta]
       @leg_distance = options[:leg_distance] || options[:legDistance]
+      @address_st = options[:addressSt] || options[:address_st]
+      @address_number = options[:addressNumber] || options[:address_number]
+      @address_complement = options[:addressComplement] || options[:address_complement]
     end
   end
 end

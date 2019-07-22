@@ -102,7 +102,10 @@ RSpec.describe Loggi::Services::OrderCreator, type: :model do
                   index: 1,
                   index_display: 'B',
                   eta: 1_561_234_918,
-                  legDistance: 2225
+                  legDistance: 2225,
+                  addressSt: 'Rua Augusta',
+                  addressNumber: '588',
+                  addressComplement: '8o andar'
                 },
                 pickup_waypoint: {
                   instructions: 'Entregar pedido de Client Xyz, cobrar R$ 10.00 com cartão de débito. (Deixar pedido na escada)',
@@ -194,6 +197,9 @@ RSpec.describe Loggi::Services::OrderCreator, type: :model do
                   indexDisplay
                   eta
                   legDistance
+                  addressSt
+                  addressNumber
+                  addressComplement
                 }
               }
             }

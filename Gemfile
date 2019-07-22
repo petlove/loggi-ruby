@@ -9,7 +9,6 @@ gem 'http'
 group :test do
   gem 'factory_bot'
   gem 'faker'
-  gem 'fuubar'
   gem 'rspec'
   gem 'vcr'
   gem 'webmock'

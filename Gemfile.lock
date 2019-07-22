@@ -29,9 +29,6 @@ GEM
       activesupport (>= 4.2.0)
     faker (1.9.3)
       i18n (>= 0.7)
-    fuubar (2.4.0)
-      rspec-core (~> 3.0)
-      ruby-progressbar (~> 1.4)
     hashdiff (0.4.0)
     http (4.1.1)
       addressable (~> 2.3)
@@ -103,7 +100,6 @@ DEPENDENCIES
   dotenv
   factory_bot
   faker
-  fuubar
   http
   loggi!
   pry
