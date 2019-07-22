@@ -10,7 +10,7 @@ module Loggi
     end
 
     def track!
-      tap { update_fields(Services::OrderTracker.new(pk: pk).track!) }
+      tap { update_fields(Services::OrderTracker.new(pk: @pk).track!) }
     end
 
     class << self

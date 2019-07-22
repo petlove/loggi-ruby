@@ -19,7 +19,7 @@ module Loggi
         orders = response.dig(:createOrder, :orders)
         raise OrderCreatorError, response.dig(:createOrder, :errors).to_json unless orders&.any?
 
-        orders.map { |order| Loggi::Order.new(order) }
+        { data: orders.map { |order| Loggi::Order.new(order) }, request: query, response: response }
       end
 
       def login_required?

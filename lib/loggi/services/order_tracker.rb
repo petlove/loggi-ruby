@@ -36,6 +36,12 @@ module Loggi
                 totalCm
               }
               packages {
+                waypoint {
+                  addressComplement
+                  addressSt
+                  addressNumber
+                  addressData
+                }
                 pk
                 status
                 statusCode

@@ -36,6 +36,12 @@ RSpec.describe Loggi::Services::OrderTracker, type: :model do
             totalCm
           }
           packages {
+            waypoint {
+              addressComplement
+              addressSt
+              addressNumber
+              addressData
+            }
             pk
             status
             statusCode
