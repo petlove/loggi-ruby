@@ -17,7 +17,7 @@ module Loggi
       def create!
         response = request!
         orders = response.dig(:createOrder, :orders)
-        raise OrderCreatorError, response.dig(:createOrder, :errors).to_json unless orders&.any?
+        raise OrderCreatorError, request: query, response: response unless orders&.any?
 
         { data: orders.map { |order| Loggi::Order.new(order) }, request: query, response: response }
       end
