@@ -41,6 +41,9 @@ module Loggi
               }
               orders {
                 pk
+                pricing {
+                  totalCm
+                }
                 packages {
                   pk
                   status

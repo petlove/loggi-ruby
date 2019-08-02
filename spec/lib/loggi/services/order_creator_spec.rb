@@ -181,6 +181,9 @@ RSpec.describe Loggi::Services::OrderCreator, type: :model do
             }
             orders {
               pk
+              pricing {
+                totalCm
+              }
               packages {
                 pk
                 status
