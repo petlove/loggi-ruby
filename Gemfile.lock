@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    loggi (0.1.0)
+    loggi (0.2.0)
       activesupport (~> 5.0)
       http (~> 4.1.1)
 
@@ -29,7 +29,7 @@ GEM
       activesupport (>= 4.2.0)
     faker (1.9.3)
       i18n (>= 0.7)
-    hashdiff (0.4.0)
+    hashdiff (1.0.0)
     http (4.1.1)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -50,7 +50,7 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    public_suffix (3.1.0)
+    public_suffix (3.1.1)
     rainbow (3.0.0)
     rake (10.5.0)
     rspec (3.8.0)
@@ -85,7 +85,7 @@ GEM
     unf_ext (0.0.7.6)
     unicode-display_width (1.6.0)
     vcr (4.0.0)
-    webmock (3.6.0)
+    webmock (3.6.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
