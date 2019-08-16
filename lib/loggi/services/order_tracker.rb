@@ -42,6 +42,14 @@ module Loggi
                   addressNumber
                   addressData
                 }
+                pickupWaypoint {
+                  instructions
+                  index
+                  indexDisplay
+                  eta
+                  legDistance
+                  addressData
+                }
                 pk
                 status
                 statusCode
