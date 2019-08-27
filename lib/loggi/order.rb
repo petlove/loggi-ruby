@@ -28,7 +28,9 @@ module Loggi
       @original_eta = options[:original_eta] || options[:originalETA]
       @total_time = options[:total_time] || options[:totalTime]
       @pricing = build_nested(options, %i[pricing], OrderPricing)
-      @current_driver_position = build_nested(options, %i[current_driver_position], DriverPosition)
+      @current_driver_position = build_nested(options,
+                                              %i[current_driver_position currentDriverPosition],
+                                              DriverPosition)
       @packages = build_nested_array(options, %i[packages], Package)
     end
   end
