@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'loggi/version'
+require 'loggi/exceptions/service_exception'
 require 'loggi/configuration'
 require 'loggi/base'
 require 'loggi/credential'

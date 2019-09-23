@@ -3,7 +3,7 @@
 module Loggi
   module Services
     class OrderCreator < Base
-      class OrderCreatorError < StandardError; end
+      class OrderCreatorError < ::Loggi::Exceptions::ServiceException; end
 
       attr_accessor :shop, :pickups, :packages
 
@@ -17,9 +17,11 @@ module Loggi
       def create!
         response = request!
         orders = response.dig(:createOrder, :orders)
-        raise OrderCreatorError, response.dig(:createOrder, :errors).to_json unless orders&.any?
+        details = { request: query, response: response }
 
-        { data: orders.map { |order| Loggi::Order.new(order) }, request: query, response: response }
+        raise OrderCreatorError, response.dig(:createOrder, :errors).to_json, details.to_json unless orders&.any?
+
+        { data: orders.map { |order| Loggi::Order.new(order) } }.merge(details)
       end
 
       def login_required?
