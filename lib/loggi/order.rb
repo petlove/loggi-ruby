@@ -25,7 +25,7 @@ module Loggi
       @pk = options[:pk]
       @status = options[:status]
       @status_display = options[:status_display] || options[:statusDisplay]
-      @original_eta = options[:original_eta] || options[:originalETA]
+      @original_eta = options[:original_eta] || options[:originalEta]
       @total_time = options[:total_time] || options[:totalTime]
       @pricing = build_nested(options, %i[pricing], OrderPricing)
       @current_driver_position = build_nested(options,

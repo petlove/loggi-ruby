@@ -18,28 +18,57 @@ RSpec.describe Loggi::Order, type: :model do
         let(:packages) { build_list :package, 1 }
         let(:pricing) { build :order_pricing }
         let(:current_driver_position) { build :driver_position }
-        let(:options) do
-          {
-            pk: 10,
-            packages: packages,
-            pricing: pricing,
-            current_driver_position: current_driver_position,
-            status: 'allocating',
-            status_display: 'Em alocação',
-            original_eta: 2033,
-            total_time: nil
-          }
+
+        context 'with correct fields' do
+          let(:options) do
+            {
+              pk: 10,
+              packages: packages,
+              pricing: pricing,
+              current_driver_position: current_driver_position,
+              status: 'allocating',
+              status_display: 'Em alocação',
+              original_eta: 2033,
+              total_time: nil
+            }
+          end
+
+          it 'should full all fields' do
+            expect(subject.pk).to eq(10)
+            expect(subject.packages.all? { |package| package.is_a?(Loggi::Package) }).to be_truthy
+            expect(subject.pricing).to eq(pricing)
+            expect(subject.current_driver_position).to eq(current_driver_position)
+            expect(subject.status).to eq('allocating')
+            expect(subject.status_display).to eq('Em alocação')
+            expect(subject.original_eta).to eq(2033)
+            expect(subject.total_time).to eq(nil)
+          end
         end
 
-        it 'should full all fields' do
-          expect(subject.pk).to eq(10)
-          expect(subject.packages.all? { |package| package.is_a?(Loggi::Package) }).to be_truthy
-          expect(subject.pricing).to eq(pricing)
-          expect(subject.current_driver_position).to eq(current_driver_position)
-          expect(subject.status).to eq('allocating')
-          expect(subject.status_display).to eq('Em alocação')
-          expect(subject.original_eta).to eq(2033)
-          expect(subject.total_time).to eq(nil)
+        context 'with alternated fields' do
+          let(:options) do
+            {
+              pk: 10,
+              packages: packages,
+              pricing: pricing,
+              currentDriverPosition: current_driver_position,
+              status: 'allocating',
+              statusDisplay: 'Em alocação',
+              originalEta: 2033,
+              totalTime: nil
+            }
+          end
+
+          it 'should full all fields' do
+            expect(subject.pk).to eq(10)
+            expect(subject.packages.all? { |package| package.is_a?(Loggi::Package) }).to be_truthy
+            expect(subject.pricing).to eq(pricing)
+            expect(subject.current_driver_position).to eq(current_driver_position)
+            expect(subject.status).to eq('allocating')
+            expect(subject.status_display).to eq('Em alocação')
+            expect(subject.original_eta).to eq(2033)
+            expect(subject.total_time).to eq(nil)
+          end
         end
       end
 
