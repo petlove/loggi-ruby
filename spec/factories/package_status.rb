@@ -8,6 +8,6 @@ FactoryBot.define do
     status_display { 'Não iniciada' }
     detailed_status_display { 'Agendado' }
     status_code { 1 }
-    updated { Time.parse('2019-04-24 13:48:33.126401') }
+    updated { ActiveSupport::TimeZone['America/Sao_Paulo'].parse('2019-04-24 13:48:33.126401') }
   end
 end
