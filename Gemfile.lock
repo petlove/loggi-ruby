@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    loggi (0.5.0)
+    loggi (0.6.0)
       activesupport (~> 5.0)
       http (~> 4.1.1)
 
