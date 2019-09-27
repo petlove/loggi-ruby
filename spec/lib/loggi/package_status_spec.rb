@@ -32,7 +32,7 @@ RSpec.describe Loggi::PackageStatus, type: :model do
         expect(subject.status_display).to eq('Não iniciada')
         expect(subject.detailed_status_display).to eq('Agendado')
         expect(subject.status_code).to eq(1)
-        expect(subject.updated).to eq(Time.parse('2019-04-24 13:48:33.126401'))
+        expect(subject.updated).to eq(ActiveSupport::TimeZone['America/Sao_Paulo'].parse('2019-04-24 13:48:33.126401'))
       end
     end
   end
