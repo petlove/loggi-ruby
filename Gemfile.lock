@@ -27,7 +27,7 @@ GEM
     dotenv (2.7.5)
     factory_bot (5.1.0)
       activesupport (>= 4.2.0)
-    faker (2.4.0)
+    faker (2.5.0)
       i18n (~> 1.6.0)
     hashdiff (1.0.0)
     http (4.1.1)
