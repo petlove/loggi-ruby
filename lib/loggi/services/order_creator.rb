@@ -2,7 +2,7 @@
 
 module Loggi
   module Services
-    class OrderCreator < Base
+    class OrderCreator < Base # rubocop:disable Metrics/ClassLength
       class OrderCreatorError < ::Loggi::Exceptions::ServiceException; end
 
       attr_accessor :shop, :pickups, :packages
@@ -49,6 +49,13 @@ module Loggi
                 packages {
                   pk
                   status
+                  shareds {
+                    edges {
+                      node {
+                        trackingUrl
+                      }
+                    }
+                  }
                   pickupWaypoint {
                     instructions
                     index

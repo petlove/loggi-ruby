@@ -14,8 +14,9 @@ http_interactions:
         138, Cidade Monções São Paulo - SP Brasil\" complement: \"8o andar\" } charge:
         { value: \"10.0\" method: 2 change: \"5.0\" } dimensions: { width: 10 height:
         10 length: 5 } instructions: \"Deixar pedido na escada\" } ] }) { success
-        shop { pk name } orders { pk packages { pk status pickupWaypoint { instructions
-        index indexDisplay eta legDistance } waypoint { instructions index indexDisplay
+        shop { pk name } orders { pk packages { pk status shareds { edges {
+        node { trackingUrl } } } pickupWaypoint { instructions index indexDisplay
+        eta legDistance } waypoint { instructions index indexDisplay
         eta legDistance } } } errors { field message } } }"}'
     headers:
       Content-Type:
@@ -78,7 +79,9 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"createOrder":{"success":true,"shop":{"pk":3987,"name":"PetLove
-        teste"},"orders":[{"pk":97250,"packages":[{"pk":231788,"status":"allocating","pickupWaypoint":{"instructions":"Deixar
+        teste"},"orders":[{"pk":97250,"packages":[{"pk":231788,"status":"allocating",
+        "shareds": {"edges": [{"node": {"trackingUrl": "loggi.com/c/6dckRQgZ/"}},{"node":
+        {"trackingUrl": "loggi.com/c/SDdZqnTN/"}}]},"pickupWaypoint":{"instructions":"Deixar
         pedido na escada","index":0,"indexDisplay":"A","eta":1561241517,"legDistance":0},"waypoint":{"instructions":"Entregar
         pedido de Client Xyz, cobrar R$ 10.00 com cart\u00e3o de d\u00e9bito. (Deixar
         pedido na escada)","index":1,"indexDisplay":"B","eta":1561242514,"legDistance":2225}}]}],"errors":[]}}}'
