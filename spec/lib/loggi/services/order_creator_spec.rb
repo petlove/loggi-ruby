@@ -97,6 +97,20 @@ RSpec.describe Loggi::Services::OrderCreator, type: :model do
                 instructions: 'Deixar na porta',
                 pk: 231_777,
                 status: 'allocating',
+                shareds: {
+                  edges: [
+                    {
+                      node: {
+                        trackingUrl: 'loggi.com/c/6dckRQgZ/'
+                      }
+                    },
+                    {
+                      node: {
+                        trackingUrl: 'loggi.com/c/SDdZqnTN/'
+                      }
+                    }
+                  ]
+                },
                 waypoint: {
                   instructions: 'Entregar pedido de Client Xyz, cobrar R$ 10.00 com cartão de débito. (Deixar pedido na escada)',
                   index: 1,
@@ -187,6 +201,13 @@ RSpec.describe Loggi::Services::OrderCreator, type: :model do
               packages {
                 pk
                 status
+                shareds {
+                  edges {
+                    node {
+                      trackingUrl
+                    }
+                  }
+                }
                 pickupWaypoint {
                   instructions
                   index

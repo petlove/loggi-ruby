@@ -21,6 +21,8 @@ module Loggi
 
         raise OrderCreatorError, response.dig(:createOrder, :errors).to_json, details.to_json unless orders&.any?
 
+        orders.each { |order| order[:packages].each(&method(:tracking_url!)) }
+
         { data: orders.map { |order| Loggi::Order.new(order) } }.merge(details)
       end
 
@@ -49,6 +51,13 @@ module Loggi
                 packages {
                   pk
                   status
+                  shareds {
+                    edges {
+                      node {
+                        trackingUrl
+                      }
+                    }
+                  }
                   pickupWaypoint {
                     instructions
                     index
