@@ -21,9 +21,7 @@ module Loggi
 
         raise OrderCreatorError, response.dig(:createOrder, :errors).to_json, details.to_json unless orders&.any?
 
-        orders.each do |order|
-          order.tap { |o| o[:packages].each(&method(:tracking_url!)) }
-        end
+        orders.each { |order| order[:packages].each(&method(:tracking_url!)) }
 
         { data: orders.map { |order| Loggi::Order.new(order) } }.merge(details)
       end
