@@ -2,7 +2,7 @@
 
 module Loggi
   module Services
-    class OrderCreator < Base # rubocop:disable Metrics/ClassLength
+    class OrderCreator < Base
       class OrderCreatorError < ::Loggi::Exceptions::ServiceException; end
 
       attr_accessor :shop, :pickups, :packages
@@ -20,6 +20,10 @@ module Loggi
         details = { request: query, response: response }
 
         raise OrderCreatorError, response.dig(:createOrder, :errors).to_json, details.to_json unless orders&.any?
+
+        orders.each do |order|
+          order.tap { |o| o[:packages].each(&method(:tracking_url!)) }
+        end
 
         { data: orders.map { |order| Loggi::Order.new(order) } }.merge(details)
       end

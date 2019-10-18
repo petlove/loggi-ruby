@@ -72,12 +72,6 @@ module Loggi
           }
         QUERY
       end
-
-      private
-
-      def tracking_url!(package)
-        package[:tracking_urls] = package.dig(:shareds, :edges).map { |edge| edge.dig(:node, :trackingUrl) }
-      end
     end
   end
 end
