@@ -3,7 +3,7 @@ PATH
   specs:
     loggi (0.7.0)
       activesupport (~> 5.0)
-      http (~> 4.1.1)
+      http (>= 4.1.1, < 4.3.0)
 
 GEM
   remote: https://rubygems.org/
@@ -29,16 +29,21 @@ GEM
       activesupport (>= 4.2.0)
     faker (2.6.0)
       i18n (>= 1.6, < 1.8)
+    ffi (1.11.1)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     hashdiff (1.0.0)
-    http (4.1.1)
+    http (4.2.0)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
       http-form_data (~> 2.0)
-      http_parser.rb (~> 0.6.0)
+      http-parser (~> 1.2.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http-form_data (2.1.1)
-    http_parser.rb (0.6.0)
+    http-parser (1.2.1)
+      ffi-compiler (>= 1.0, < 2.0)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.3)
