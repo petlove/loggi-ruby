@@ -2,13 +2,13 @@ PATH
   remote: .
   specs:
     loggi (0.7.0)
-      activesupport (~> 5.0)
+      activesupport (>= 5, < 7)
       http (>= 4.1.1, < 4.3.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.3)
+    activesupport (5.2.4)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -48,7 +48,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.4)
     method_source (0.9.2)
-    minitest (5.12.2)
+    minitest (5.13.0)
     parallel (1.19.1)
     parser (2.6.5.0)
       ast (~> 2.4.0)
@@ -99,7 +99,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (~> 5.0)
+  activesupport (~> 5.2)
   awesome_print
   bundler (~> 2.0.2)
   dotenv
