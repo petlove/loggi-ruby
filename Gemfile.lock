@@ -27,7 +27,7 @@ GEM
     dotenv (2.7.5)
     factory_bot (5.1.1)
       activesupport (>= 4.2.0)
-    faker (2.10.2)
+    faker (2.11.0)
       i18n (>= 1.6, < 2)
     ffi (1.12.2)
     ffi-compiler (1.0.1)
