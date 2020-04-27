@@ -25,7 +25,7 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.5)
-    factory_bot (5.1.2)
+    factory_bot (5.2.0)
       activesupport (>= 4.2.0)
     faker (2.11.0)
       i18n (>= 1.6, < 2)
@@ -85,7 +85,7 @@ GEM
     ruby-progressbar (1.10.1)
     safe_yaml (1.0.5)
     thread_safe (0.3.6)
-    tzinfo (1.2.6)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext
