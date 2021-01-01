@@ -22,6 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activesupport', '>= 5', '< 7'
   spec.add_dependency 'http', '>= 4.1.1', '< 4.5.0'
 
-  spec.add_development_dependency 'bundler', '~> 2.1.1'
+  spec.add_development_dependency 'bundler', '~> 2.2.4'
   spec.add_development_dependency 'rake', '~> 13.0'
 end
