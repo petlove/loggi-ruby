@@ -19,7 +19,8 @@ GEM
     awesome_print (1.8.0)
     coderay (1.1.2)
     concurrent-ruby (1.1.7)
-    crack (0.4.4)
+    crack (0.4.5)
+      rexml
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
@@ -90,7 +91,7 @@ GEM
     unf_ext (0.0.7.7)
     unicode-display_width (1.7.0)
     vcr (6.0.0)
-    webmock (3.10.0)
+    webmock (3.11.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
