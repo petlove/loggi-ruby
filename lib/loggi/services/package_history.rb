@@ -27,7 +27,7 @@ module Loggi
       def query
         <<-QUERY
           query {
-            packageHistory(packageId: #{@pk}) {
+            packageHistory(packageId: #{@pk}, forCompany: true) {
               signatureUrl
               signedByName
               statuses {
