@@ -34,7 +34,7 @@ module Loggi
         <<-QUERY
           mutation {
             createOrder(input: {
-              shopId: #{@shop.pk}
+              paymentMethod: #{@shop.payment_method}
               pickups: #{pickups_query}
               packages: #{packages_query}
             }) {
