@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :shop, class: Loggi::Shop do
     initialize_with { new({}) }
 
-    payment_method { '123456' }
+    payment_method { '286147' }
     name { 'Coelho Burguer' }
     pickup_instructions { 'Retirar pacotes no balcão' }
     address { build :address }

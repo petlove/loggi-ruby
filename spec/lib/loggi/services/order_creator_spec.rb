@@ -149,7 +149,7 @@ RSpec.describe Loggi::Services::OrderCreator, type: :model do
       <<-QUERY
         mutation {
           createOrder(input: {
-            paymentMethod: 123456
+            paymentMethod: 286147
             pickups: [
               {
                 address: {
