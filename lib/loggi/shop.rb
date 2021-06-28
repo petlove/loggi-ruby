@@ -8,7 +8,7 @@ module Loggi
       @name = options[:name]
       @pickup_instructions = options[:pickupInstructions]
       @address = Address.new(options[:address]) if options[:address]
-      @payment_method = options[:paymentMethod].to_i
+      @payment_method = (options[:paymentMethod] || options[:payment_method]).to_i
 
       return unless options[:chargeOptions].is_a?(Array)
 
