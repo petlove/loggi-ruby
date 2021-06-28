@@ -8,7 +8,7 @@ RSpec.describe Loggi::Shop, type: :model do
       let(:options) { {} }
 
       it 'shouldnt full any field' do
-        expect(subject.pk).to be_nil
+        expect(subject.payment_method).to be_zero
         expect(subject.name).to be_nil
         expect(subject.pickup_instructions).to be_nil
         expect(subject.address).to be_nil
@@ -21,7 +21,7 @@ RSpec.describe Loggi::Shop, type: :model do
         {
           name: 'Coelho Burguer',
           pickupInstructions: 'Retirar pacotes no balcão',
-          pk: 129,
+          paymentMethod: 129,
           address: {
             pos: '{ "type": "Point", "coordinates": [ -46.6516703, -23.5516433 ] }',
             addressSt: 'Rua Augusta',
@@ -44,7 +44,7 @@ RSpec.describe Loggi::Shop, type: :model do
       end
 
       it 'should full all fields' do
-        expect(subject.pk).to eq(129)
+        expect(subject.payment_method).to eq(129)
         expect(subject.name).to eq('Coelho Burguer')
         expect(subject.pickup_instructions).to eq('Retirar pacotes no balcão')
         expect(subject.address).to be_a(Loggi::Address)

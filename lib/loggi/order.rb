@@ -3,7 +3,7 @@
 module Loggi
   class Order < Base
     attr_accessor :pk, :packages, :status, :status_display, :original_eta, :total_time, :pricing,
-                  :current_driver_position
+                  :current_driver_position, :payment_method
 
     def initialize(options)
       update_fields(options)
@@ -24,6 +24,7 @@ module Loggi
     def update_fields(options)
       @pk = options[:pk]
       @status = options[:status]
+      @payment_method = options[:payment_method] || options[:paymentMethod]
       @status_display = options[:status_display] || options[:statusDisplay]
       @original_eta = options[:original_eta] || options[:originalEta]
       @total_time = options[:total_time] || options[:totalTime]
