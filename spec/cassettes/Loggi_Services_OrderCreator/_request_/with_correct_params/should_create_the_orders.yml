@@ -5,29 +5,31 @@ http_interactions:
     uri: https://staging.loggi.com/graphql
     body:
       encoding: UTF-8
-      string: '{"query":"mutation { createOrder(input: { shopId: 3987 pickups: [ {
-        address: { lat: -23.5516433 lng: -46.6516703 address: \"Av. Dr. Cardoso de
-        Melo, 1155 - Vila Olimpia, São Paulo - SP, 04548-004, Brazil\" complement:
+      string: '{"query":"mutation { createOrder(input: { paymentMethod: 286147 pickups:
+        [ { address: { lat: -23.5516433 lng: -46.6516703 address: \"Av. Dr. Cardoso
+        de Melo, 1155 - Vila Olimpia, São Paulo - SP, 04548-004, Brazil\" complement:
         \"8o andar\" } instructions: \"Deixar pedido na escada\" } ] packages: [ {
         pickupIndex: 0 recipient: { name: \"Client XYZ\" phone: \"1199678890\" } address:
         { lat: -23.5516433 lng: -46.6516703 address: \"R. Sansão Alves dos Santos,
         138, Cidade Monções São Paulo - SP Brasil\" complement: \"8o andar\" } charge:
         { value: \"10.0\" method: 2 change: \"5.0\" } dimensions: { width: 10 height:
         10 length: 5 } instructions: \"Deixar pedido na escada\" } ] }) { success
-        shop { pk name } orders { pk packages { pk status pickupWaypoint { instructions
-        index indexDisplay eta legDistance } waypoint { instructions index indexDisplay
-        eta legDistance } } } errors { field message } } }"}'
+        shop { pk name } orders { pk pricing { totalCm } packages { pk status shareds
+        { edges { node { trackingUrl } } } pickupWaypoint { instructions index indexDisplay
+        eta legDistance } waypoint { instructions index indexDisplay eta legDistance
+        addressSt addressNumber addressComplement } } } errors { field message } }
+        }"}'
     headers:
       Content-Type:
       - application/json
       Authorization:
-      - ApiKey loggistaging@loggi.com:14651f0f-8888-4100-9ab7-cf4b2dffb31e
+      - ApiKey anderson.ferreira@petlove.com.br:ff4bd279e3102439fb232454a7b8025e172a505b
       Connection:
       - close
       Host:
       - staging.loggi.com
       User-Agent:
-      - http.rb/4.1.1
+      - http.rb/4.4.1
   response:
     status:
       code: 200
@@ -36,37 +38,30 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 22 Jun 2019 22:01:55 GMT
+      - Mon, 28 Jun 2021 18:24:32 GMT
       Content-Type:
       - application/json
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '825'
       Connection:
       - close
-      Access-Control-Allow-Headers:
-      - Authorization,Content-Type,Accept,Origin,User-Agent,DNT,Cache-Control,X-Mx-ReqToken,Keep-Alive,X-Requested-With,If-Modified-Since
-      Content-Language:
-      - pt-br
       Vary:
       - Cookie, Accept-Language
       Access-Control-Allow-Credentials:
       - 'true'
-      X-Lu:
-      - 60855;304899
-      Access-Control-Allow-Origin:
-      - "*"
       Access-Control-Allow-Methods:
       - GET, POST, OPTIONS, PATCH
+      Http-X-Correlation-Id:
+      - 06be4b3a-9b5a-4809-beae-d97095088c62
+      Content-Language:
+      - pt-br
       X-Wsgi-Duration:
-      - '1.296578'
+      - '1.353213'
       Set-Cookie:
-      - csrftoken=xMU6CGZuZ8NFMee4LPas4qG7bc4xYeqT; expires=Sat, 20-Jun-2020 22:01:55
-        GMT; Max-Age=31449600; Path=/
-      - django_language=pt_BR; Path=/
-      - sessionid="eyJkamFuZ29fbGFuZ3VhZ2UiOiJwdF9CUiJ9:1heo55:c8ZYr5AZigGh8kpAqy6Hi-FiHt8";
-        expires=Sat, 06-Jul-2019 22:01:55 GMT; httponly; Max-Age=1209600; Path=/
+      - csrftoken=bo9eucrMhZwSOwcjOhAG6d43P52u1luztcQcPyZpxdi9ajx0hQXgcYx7G4kZVSiN;
+        expires=Mon, 27 Jun 2022 18:24:32 GMT; Max-Age=31449600; Path=/; SameSite=Lax
       Node:
-      - app-server-app-0
+      - app-server-app-v1-1
       X-Ua-Compatible:
       - IE=edge,chrome=1
       X-Proxy:
@@ -74,14 +69,15 @@ http_interactions:
       X-Backend:
       - www_be
       X-Box:
-      - app_1
+      - app_2
+      Access-Control-Allow-Headers:
+      - Authorization,Content-Type,Accept,Origin,User-Agent,DNT,Cache-Control,X-Mx-ReqToken,Keep-Alive,X-Requested-With,If-Modified-Since,AppVersion,ObservabilityId,Service
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"createOrder":{"success":true,"shop":{"pk":3987,"name":"PetLove
-        teste"},"orders":[{"pk":97249,"packages":[{"pk":231787,"status":"allocating","pickupWaypoint":{"instructions":"Deixar
-        pedido na escada","index":0,"indexDisplay":"A","eta":1561241515,"legDistance":0},"waypoint":{"instructions":"Entregar
-        pedido de Client Xyz, cobrar R$ 10.00 com cart\u00e3o de d\u00e9bito. (Deixar
-        pedido na escada)","index":1,"indexDisplay":"B","eta":1561242512,"legDistance":2225}}]}],"errors":[]}}}'
-    http_version:
-  recorded_at: Sat, 22 Jun 2019 22:01:55 GMT
-recorded_with: VCR 4.0.0
+      string: '{"errors":[{"message":"''WSGIRequest'' object has no attribute ''share_hash''","locations":[{"line":1,"column":724}],"path":["createOrder","orders",0,"packages",0,"status"]}],"data":{"createOrder":{"success":true,"shop":null,"orders":[{"pk":189860,"pricing":{"totalCm":"14.90"},"packages":[{"pk":8375944,"status":null,"shareds":{"edges":[{"node":{"trackingUrl":"loggi.com/c/ULv3FKEV/"}},{"node":{"trackingUrl":"loggi.com/c/sEAJMRnD/"}}]},"pickupWaypoint":{"instructions":"Deixar
+        pedido na escada","index":0,"indexDisplay":"A","eta":1624905872,"legDistance":0},"waypoint":{"instructions":"Entregar
+        pedido de Client Xyz (Deixar pedido na escada)","index":1,"indexDisplay":"B","eta":1624906895,"legDistance":2443,"addressSt":"Rua
+        Sans\u00e3o Alves dos Santos","addressNumber":"138","addressComplement":"8o
+        andar"}}]}],"errors":[]}}}'
+  recorded_at: Mon, 28 Jun 2021 18:24:32 GMT
+recorded_with: VCR 6.0.0

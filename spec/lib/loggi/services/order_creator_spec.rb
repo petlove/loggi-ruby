@@ -34,7 +34,7 @@ RSpec.describe Loggi::Services::OrderCreator, type: :model do
             shop: {
               name: 'Coelho Burguer',
               pickupInstructions: 'Retirar pacotes no balcão',
-              pk: 129,
+              paymentMethod: 129,
               address: {
                 pos: '{ "type": "Point", "coordinates": [ -46.6516703, -23.5516433 ] }',
                 addressSt: 'Rua Augusta',
@@ -149,7 +149,7 @@ RSpec.describe Loggi::Services::OrderCreator, type: :model do
       <<-QUERY
         mutation {
           createOrder(input: {
-            shopId: 3987
+            paymentMethod: 286147
             pickups: [
               {
                 address: {
@@ -279,7 +279,7 @@ RSpec.describe Loggi::Services::OrderCreator, type: :model do
     subject { instance.create! }
 
     context 'with incorrect params' do
-      let(:instance) { build(:services_order_creator, shop: build(:shop, pk: 10)) }
+      let(:instance) { build(:services_order_creator, shop: build(:shop, payment_method: 10)) }
 
       it 'should raise OrderCreatorError', :vcr do
         expect { subject }.to raise_error(described_class::OrderCreatorError)
